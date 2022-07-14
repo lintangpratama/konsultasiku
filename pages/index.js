@@ -35,7 +35,7 @@ export default function Home() {
             <div className="flex mt-5 bg-white rounded-search">
               <div className="mx-4 my-5 w-full">
                 <h3 className="mb-4">Kategori</h3>
-                <div className="grid grid-cols-4 justify-items-center gap-9 mx-8 mt-1">
+                <div className="grid grid-cols-4 justify-between gap-9 mx-5 mt-1 mb-2">
                   <div>
                     <div className="flex w-14 h-14 justify-center align-center shadow-lg rounded-search">
                       <div className="my-auto mx-auto">
@@ -171,9 +171,11 @@ export default function Home() {
         </div>
         <div className="mx-4 my-5 mb-20 mt-56">
           <div className="flex justify-between mt-5">
-            <h3 className="mb-4">Feeds</h3>
+            <h3 className="mb-2">Feeds</h3>
             <p className="text-main underline">View All</p>
           </div>
+          <Card />
+          <Card />
           <Card />
           <MenuBar />
         </div>

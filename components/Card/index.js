@@ -1,10 +1,11 @@
 /* eslint-disable react/no-unescaped-entities */
 import Image from "next/image";
+import Link from "next/link";
 
 /* eslint-disable @next/next/no-img-element */
 export default function Card() {
   return (
-    <div className="flex flex-col rounded-search bg-white">
+    <div className="flex flex-col rounded-search bg-white mt-4">
       <div>
         <img src="/img/job-poster.png" alt="Job Poster" />
       </div>
@@ -43,16 +44,34 @@ export default function Card() {
             ideal place to get ahead. Apply today!
           </div>
         </div>
-        <div className="flex justify-between mt-5">
+
+        <div className="flex justify-between mt-5 relative">
+          {/* <div id="toggleMore" className="right-0 bg-white absolute shadow-lg rounded-full bottom-10">
+            <div className="flex mx-3 my-3">
+              <a className="hover:underline cursor-pointer">
+                <p className="mx-1">Formulir</p>
+              </a>
+              <a className="hover:underline cursor-pointer">
+                <p className="mx-2">Email</p>
+              </a>
+              <a className="hover:underline cursor-pointer">
+                <p className="mx-1">WhatsApp</p>
+              </a>
+            </div>
+          </div> */}
+          <Link href="/detail">
             <button className="rounded-full border border-black w-1/5">
-                <p className="my-2 mx-auto">More</p>
+              <p className="my-2 mx-auto">More</p>
             </button>
-            <button className="rounded-full border border-main w-1/4">
-                <p className="my-2 mx-auto text-main">Jangan Diklik</p>
-            </button>
+          </Link>
+          <button className="rounded-full border border-main w-1/4">
+            <p className="my-2 mx-auto text-main">Jangan Diklik</p>
+          </button>
+          <Link href="/detail">
             <button className="rounded-full border bg-main border-main w-1/2">
-                <p className="my-2 mx-auto text-white font-bold">Apply</p>
+              <p className="my-2 mx-auto text-white font-bold">Apply</p>
             </button>
+          </Link>
         </div>
       </div>
     </div>
