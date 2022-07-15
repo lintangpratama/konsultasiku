@@ -35,9 +35,9 @@ export default function Home() {
             <div className="flex mt-5 bg-white rounded-search">
               <div className="mx-4 my-5 w-full">
                 <h3 className="mb-4">Kategori</h3>
-                <div className="grid grid-cols-4 justify-between gap-9 mx-5 mt-1 mb-2">
+                <div className="grid grid-cols-4 justify-between gap-5 tablet:gap-9 mt-1 mb-2">
                   <div>
-                    <div className="flex w-14 h-14 justify-center align-center shadow-lg rounded-search">
+                    <div className="flex w-11 h-11 tablet:w-14 tablet:h-14 justify-center align-center shadow-lg rounded-search mx-auto">
                       <div className="my-auto mx-auto">
                         <div className="flex justify-center rounded-box">
                           <Image
@@ -53,7 +53,7 @@ export default function Home() {
                     <p className="flex mt-1.5 justify-center">Bahasa</p>
                   </div>
                   <div>
-                    <div className="flex w-14 h-14 justify-center align-center shadow-lg rounded-search">
+                    <div className="flex w-11 h-11 tablet:w-14 tablet:h-14 justify-center align-center shadow-lg rounded-search mx-auto">
                       <div className="my-auto mx-auto">
                         <div className="flex justify-center rounded-box">
                           <Image
@@ -69,7 +69,7 @@ export default function Home() {
                     <p className="flex mt-1.5 justify-center">Bisnis</p>
                   </div>
                   <div>
-                    <div className="flex w-14 h-14 justify-center align-center shadow-lg rounded-search">
+                    <div className="flex w-11 h-11 tablet:w-14 tablet:h-14 justify-center align-center shadow-lg rounded-search mx-auto">
                       <div className="my-auto mx-auto">
                         <div className="flex justify-center rounded-box">
                           <Image
@@ -85,7 +85,7 @@ export default function Home() {
                     <p className="flex mt-1.5 justify-center">Kecantikan</p>
                   </div>
                   <div>
-                    <div className="flex w-14 h-14 justify-center align-center shadow-lg rounded-search">
+                    <div className="flex w-11 h-11 tablet:w-14 tablet:h-14 justify-center align-center shadow-lg rounded-search mx-auto">
                       <div className="my-auto mx-auto">
                         <div className="flex justify-center rounded-box">
                           <Image
@@ -101,7 +101,7 @@ export default function Home() {
                     <p className="flex mt-1.5 justify-center">Teknologi</p>
                   </div>
                   <div>
-                    <div className="flex w-14 h-14 justify-center align-center shadow-lg rounded-search">
+                    <div className="flex w-11 h-11 tablet:w-14 tablet:h-14 justify-center align-center shadow-lg rounded-search mx-auto">
                       <div className="my-auto mx-auto">
                         <div className="flex justify-center rounded-box">
                           <Image
@@ -117,7 +117,7 @@ export default function Home() {
                     <p className="flex mt-1.5 justify-center">Jasa</p>
                   </div>
                   <div>
-                    <div className="flex w-14 h-14 justify-center align-center shadow-lg rounded-search">
+                    <div className="flex w-11 h-11 tablet:w-14 tablet:h-14 justify-center align-center shadow-lg rounded-search mx-auto">
                       <div className="my-auto mx-auto">
                         <div className="flex justify-center rounded-box">
                           <Image
@@ -133,7 +133,7 @@ export default function Home() {
                     <p className="flex mt-1.5 justify-center">Hobi</p>
                   </div>
                   <div>
-                    <div className="flex w-14 h-14 justify-center align-center shadow-lg rounded-search">
+                    <div className="flex w-11 h-11 tablet:w-14 tablet:h-14 justify-center align-center shadow-lg rounded-search mx-auto">
                       <div className="my-auto mx-auto">
                         <div className="flex justify-center rounded-box">
                           <Image
@@ -149,7 +149,7 @@ export default function Home() {
                     <p className="flex mt-1.5 justify-center">Marketing</p>
                   </div>
                   <div>
-                    <div className="flex w-14 h-14 justify-center align-center shadow-lg rounded-search">
+                    <div className="flex w-11 h-11 tablet:w-14 tablet:h-14 justify-center align-center shadow-lg rounded-search mx-auto">
                       <div className="my-auto mx-auto">
                         <div className="flex justify-center rounded-box">
                           <Image

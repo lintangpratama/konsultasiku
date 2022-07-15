@@ -22,6 +22,9 @@ module.exports = {
       },
       fontSize: {
         'search': '9px'
+      },
+      screens: {
+        'tablet': '396px'
       }
     },
   },
