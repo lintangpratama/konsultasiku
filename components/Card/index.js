@@ -4,6 +4,19 @@ import Link from "next/link";
 
 /* eslint-disable @next/next/no-img-element */
 export default function Card() {
+  const func = function (e) {
+    // const applyBtn = document.getElementById("applyButton");
+    // applyBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    const toggleMore = document.getElementById("toggleMore");
+    if (toggleMore.classList.contains("hidden")) {
+      toggleMore.classList.remove("hidden");
+    } else {
+      toggleMore.classList.add("hidden");
+    }
+    // });
+  };
+
   return (
     <div className="flex flex-col rounded-search bg-white mt-4">
       <div>
@@ -46,24 +59,59 @@ export default function Card() {
         </div>
 
         <div className="flex justify-between mt-5 relative">
-          {/* <div id="toggleMore" className="right-0 bg-white absolute shadow-lg rounded-full bottom-10">
-            <div className="flex mx-3 my-3">
-              <a className="hover:underline cursor-pointer">
-                <p className="mx-1">Formulir</p>
+          <div
+            id="toggleMore"
+            className="bg-white absolute shadow-lg rounded-full bottom-10 hidden"
+          >
+            <div className="flex items-center mx-3 my-3">
+              <a className="flex items-center hover:underline cursor-pointer mr-2">
+                <Image
+                  src="/icon/social-media/facebook-logo.svg"
+                  alt="Facebook"
+                  width={25}
+                  height={25}
+                />
               </a>
-              <a className="hover:underline cursor-pointer">
-                <p className="mx-2">Email</p>
+              <a className="flex items-center hover:underline cursor-pointer mr-2">
+                <Image
+                  src="/icon/social-media/telegram-logo.svg"
+                  alt="Telegram"
+                  width={25}
+                  height={25}
+                />
               </a>
-              <a className="hover:underline cursor-pointer">
-                <p className="mx-1">WhatsApp</p>
+              <a className="flex items-center hover:underline cursor-pointer mr-2">
+                <Image
+                  src="/icon/social-media/instagram-logo.svg"
+                  alt="Instagram"
+                  width={25}
+                  height={25}
+                />
+              </a>
+              <a className="flex items-center hover:underline cursor-pointer mr-2">
+                <Image
+                  src="/icon/social-media/twitter-logo.svg"
+                  alt="Twitter"
+                  width={25}
+                  height={25}
+                />
+              </a>
+              <a className="flex items-center hover:underline cursor-pointer">
+                <Image
+                  src="/icon/social-media/web-logo.svg"
+                  alt="Website"
+                  width={25}
+                  height={25}
+                />
               </a>
             </div>
-          </div> */}
-          <Link href="/detail">
-            <button className="rounded-full border border-black w-1/5">
-              <p className="my-2 mx-auto">More</p>
-            </button>
-          </Link>
+          </div>
+          <button
+            onClick={func}
+            className="rounded-full border border-black w-1/5"
+          >
+            <p className="my-2 mx-auto">More</p>
+          </button>
           <button className="rounded-full border border-main w-1/4">
             <p className="my-2 mx-auto text-main">Jangan Diklik</p>
           </button>

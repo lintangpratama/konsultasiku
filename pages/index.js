@@ -175,8 +175,6 @@ export default function Home() {
             <p className="text-main underline">View All</p>
           </div>
           <Card />
-          <Card />
-          <Card />
           <MenuBar />
         </div>
       </div>
