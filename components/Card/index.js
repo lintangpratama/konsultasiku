@@ -110,7 +110,7 @@ export default function Card() {
             onClick={func}
             className="rounded-full border border-black w-1/5"
           >
-            <p className="my-2 mx-auto">More</p>
+            <p className="my-2 mx-auto">Follow</p>
           </button>
           <button className="rounded-full border border-main w-1/4">
             <p className="my-2 mx-auto text-main">Jangan Diklik</p>

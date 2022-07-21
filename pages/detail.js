@@ -4,17 +4,33 @@ import Image from "next/image";
 import Router from "next/router";
 
 export default function detail() {
-  const func = function (e) {
+  const func = (e) => {
     // const applyBtn = document.getElementById("applyButton");
     // applyBtn.addEventListener("click", function (e) {
-      e.preventDefault();
-      const toggleMore = document.getElementById("toggleMore");
-      if (toggleMore.classList.contains("hidden")) {
-          toggleMore.classList.remove("hidden");
-      } else {
-          toggleMore.classList.add("hidden");
-      }
+    e.preventDefault();
+    const toggleMore = document.getElementById("toggleMore");
+    if (toggleMore.classList.contains("hidden")) {
+      toggleMore.classList.remove("hidden");
+    } else {
+      toggleMore.classList.add("hidden");
+    }
     // });
+  };
+
+  const copyToClipboard = () => {
+    /* Get the text field */
+    const copyText = document.getElementById("emailCopy").classList.value;
+    const alert = document.getElementById("alert");
+
+    /* Copy the text inside the element */
+    navigator.clipboard.writeText(copyText);
+
+    /* Alert the copied text */
+    alert.classList.remove("hidden");
+
+    setTimeout(() => {
+      alert.classList.add("hidden");
+    }, 1500);
   };
 
   return (
@@ -95,8 +111,24 @@ export default function detail() {
                 </div>
                 <div className="flex items-center">
                   <div className="w-1.5 h-1.5 rounded-full bg-black mr-1"></div>
+                  <p className="w-24">Tipe Pekerjaan</p>
+                  <p>: Full-Time</p>
+                  <p>: Remote, Freelaance, Internship, Part-Time</p>
+                </div>
+                <div className="flex items-center">
+                  <div className="w-1.5 h-1.5 rounded-full bg-black mr-1"></div>
                   <p className="w-24">Besaran Gaji</p>
                   <p>: Kompetitif</p>
+                </div>
+                <div className="flex items-center">
+                  <div className="w-1.5 h-1.5 rounded-full bg-black mr-1"></div>
+                  <p className="w-24">Bidang Pekerjaan</p>
+                  <p>: Accounting</p>
+                </div>
+                <div className="flex items-center">
+                  <div className="w-1.5 h-1.5 rounded-full bg-black mr-1"></div>
+                  <p className="w-24">Industri</p>
+                  <p>: Perbankan</p>
                 </div>
                 <div className="flex items-center">
                   <div className="w-1.5 h-1.5 rounded-full bg-black mr-1"></div>
@@ -186,20 +218,61 @@ export default function detail() {
             </div>
 
             <div className="flex justify-between mt-5 relative">
-              <div
-                id="toggleMore"
-                className="right-0 bg-white absolute shadow-lg rounded-full bottom-10 hidden"
-              >
-                <div className="flex mx-3 my-3">
-                  <a className="hover:underline cursor-pointer">
-                    <p className="mx-1">Formulir</p>
-                  </a>
-                  <a className="hover:underline cursor-pointer">
-                    <p className="mx-2">Email</p>
-                  </a>
-                  <a className="hover:underline cursor-pointer">
-                    <p className="mx-1">WhatsApp</p>
-                  </a>
+              <div id="toggleMore" className="hidden">
+                {/* Copied */}
+                <div
+                  id="alert"
+                  className="bg-green-200 px-3 py-1 rounded-3xl max-w-max mb-1 right-0 bottom-22 absolute transition-all duration-150 hidden"
+                >
+                  <p className="text-green-600">Copied!</p>
+                </div>
+
+                <div
+                  id="toggleMore"
+                  className="bg-white shadow-lg rounded-full bottom-10 right-0 absolute"
+                >
+                  <div className="flex mx-3 my-3">
+                    <a
+                      href="https://google.com"
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      className="hover:underline cursor-pointer flex items-center mr-2"
+                    >
+                      <Image
+                        src="/icon/internet-icon.svg"
+                        height={23}
+                        width={23}
+                        alt="web"
+                      />
+                      <p className="ml-1">Via Web</p>
+                    </a>
+                    <a
+                      href="mailto:hr@jobspot.id"
+                      className="hover:underline cursor-pointer flex items-center mr-2"
+                    >
+                      <Image
+                        src="/icon/mail-icon.svg"
+                        height={23}
+                        width={23}
+                        alt="web"
+                      />
+                      <p className="ml-1">Via Email</p>
+                    </a>
+                    <a
+                      onClick={copyToClipboard}
+                      className="hover:underline cursor-pointer flex items-center mr-2"
+                    >
+                      <Image
+                        src="/icon/copy-icon.svg"
+                        height={23}
+                        width={23}
+                        alt="web"
+                      />
+                      <p id="emailCopy" className="hr@jobspot.id">
+                        Copy Email
+                      </p>
+                    </a>
+                  </div>
                 </div>
               </div>
               <button
@@ -213,8 +286,6 @@ export default function detail() {
           </div>
         </div>
       </div>
-
-      
     </>
   );
 }

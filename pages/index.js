@@ -36,12 +36,12 @@ export default function Home() {
               <div className="mx-4 my-5 w-full">
                 <h3 className="mb-4">Kategori</h3>
                 <div className="grid grid-cols-4 justify-between gap-5 tablet:gap-9 mt-1 mb-2">
-                  <div>
+                  <div className="cursor-pointer hover:underline">
                     <div className="flex w-11 h-11 tablet:w-14 tablet:h-14 justify-center align-center shadow-lg rounded-search mx-auto">
                       <div className="my-auto mx-auto">
                         <div className="flex justify-center rounded-box">
                           <Image
-                            src="/icon/lang-icon.svg"
+                            src="/icon/money-icon.svg"
                             alt="language icon"
                             width={23}
                             height={23}
@@ -50,15 +50,15 @@ export default function Home() {
                         </div>
                       </div>
                     </div>
-                    <p className="flex mt-1.5 justify-center">Bahasa</p>
+                    <p className="flex mt-1.5 justify-center">Keuangan</p>
                   </div>
-                  <div>
+                  <div className="cursor-pointer hover:underline">
                     <div className="flex w-11 h-11 tablet:w-14 tablet:h-14 justify-center align-center shadow-lg rounded-search mx-auto">
                       <div className="my-auto mx-auto">
                         <div className="flex justify-center rounded-box">
                           <Image
-                            src="/icon/biz-icon.svg"
-                            alt="biz icon"
+                            src="/icon/manufacture-icon.svg"
+                            alt="manufacture icon"
                             width={23}
                             height={23}
                             className="mx-auto"
@@ -66,15 +66,15 @@ export default function Home() {
                         </div>
                       </div>
                     </div>
-                    <p className="flex mt-1.5 justify-center">Bisnis</p>
+                    <p className="flex mt-1.5 justify-center">Manufaktur</p>
                   </div>
-                  <div>
+                  <div className="cursor-pointer hover:underline">
                     <div className="flex w-11 h-11 tablet:w-14 tablet:h-14 justify-center align-center shadow-lg rounded-search mx-auto">
                       <div className="my-auto mx-auto">
                         <div className="flex justify-center rounded-box">
                           <Image
-                            src="/icon/beauty-icon.svg"
-                            alt="beauty icon"
+                            src="/icon/engineering-icon.svg"
+                            alt="engineering icon"
                             width={23}
                             height={23}
                             className="mx-auto"
@@ -82,9 +82,9 @@ export default function Home() {
                         </div>
                       </div>
                     </div>
-                    <p className="flex mt-1.5 justify-center">Kecantikan</p>
+                    <p className="flex mt-1.5 justify-center">Teknik</p>
                   </div>
-                  <div>
+                  <div className="cursor-pointer hover:underline">
                     <div className="flex w-11 h-11 tablet:w-14 tablet:h-14 justify-center align-center shadow-lg rounded-search mx-auto">
                       <div className="my-auto mx-auto">
                         <div className="flex justify-center rounded-box">
@@ -100,13 +100,13 @@ export default function Home() {
                     </div>
                     <p className="flex mt-1.5 justify-center">Teknologi</p>
                   </div>
-                  <div>
+                  <div className="cursor-pointer hover:underline">
                     <div className="flex w-11 h-11 tablet:w-14 tablet:h-14 justify-center align-center shadow-lg rounded-search mx-auto">
                       <div className="my-auto mx-auto">
                         <div className="flex justify-center rounded-box">
                           <Image
-                            src="/icon/service-icon.svg"
-                            alt="service icon"
+                            src="/icon/school-icon.svg"
+                            alt="school icon"
                             width={23}
                             height={23}
                             className="mx-auto"
@@ -114,9 +114,9 @@ export default function Home() {
                         </div>
                       </div>
                     </div>
-                    <p className="flex mt-1.5 justify-center">Jasa</p>
+                    <p className="flex mt-1.5 justify-center">Pendidikan</p>
                   </div>
-                  <div>
+                  <div className="cursor-pointer hover:underline">
                     <div className="flex w-11 h-11 tablet:w-14 tablet:h-14 justify-center align-center shadow-lg rounded-search mx-auto">
                       <div className="my-auto mx-auto">
                         <div className="flex justify-center rounded-box">
@@ -130,9 +130,9 @@ export default function Home() {
                         </div>
                       </div>
                     </div>
-                    <p className="flex mt-1.5 justify-center">Hobi</p>
+                    <p className="flex mt-1.5 justify-center">Media</p>
                   </div>
-                  <div>
+                  <div className="cursor-pointer hover:underline">
                     <div className="flex w-11 h-11 tablet:w-14 tablet:h-14 justify-center align-center shadow-lg rounded-search mx-auto">
                       <div className="my-auto mx-auto">
                         <div className="flex justify-center rounded-box">
@@ -148,13 +148,13 @@ export default function Home() {
                     </div>
                     <p className="flex mt-1.5 justify-center">Marketing</p>
                   </div>
-                  <div>
+                  <div className="cursor-pointer hover:underline">
                     <div className="flex w-11 h-11 tablet:w-14 tablet:h-14 justify-center align-center shadow-lg rounded-search mx-auto">
                       <div className="my-auto mx-auto">
                         <div className="flex justify-center rounded-box">
                           <Image
-                            src="/icon/self-icon.svg"
-                            alt="self icon"
+                            src="/icon/hr-icon.svg"
+                            alt="hr icon"
                             width={23}
                             height={23}
                             className="mx-auto"
@@ -162,7 +162,7 @@ export default function Home() {
                         </div>
                       </div>
                     </div>
-                    <p className="flex mt-1.5 justify-center">Improvement</p>
+                    <p className="flex mt-1.5 justify-center">SDM</p>
                   </div>
                 </div>
               </div>

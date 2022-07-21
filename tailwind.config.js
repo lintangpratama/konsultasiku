@@ -25,6 +25,9 @@ module.exports = {
       },
       screens: {
         'tablet': '396px'
+      },
+      inset: {
+        '22': '86px'
       }
     },
   },
