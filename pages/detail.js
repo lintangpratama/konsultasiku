@@ -14,7 +14,6 @@ export default function detail() {
     } else {
       toggleMore.classList.add("hidden");
     }
-    // });
   };
 
   const toggleDonation = (e) => {
@@ -25,7 +24,6 @@ export default function detail() {
     } else {
       toggleDonation.classList.add("hidden");
     }
-    // });
   }
 
   const copyToClipboard = () => {

@@ -14,7 +14,16 @@ export default function Card() {
     } else {
       toggleMore.classList.add("hidden");
     }
-    // });
+  };
+
+  const toggleDonation = (e) => {
+    e.preventDefault();
+    const toggleDonation = document.getElementById("toggleDonation");
+    if (toggleDonation.classList.contains("hidden")) {
+      toggleDonation.classList.remove("hidden");
+    } else {
+      toggleDonation.classList.add("hidden");
+    }
   };
 
   return (
@@ -59,6 +68,38 @@ export default function Card() {
         </div>
 
         <div className="flex justify-between mt-5 relative">
+          <div className="hidden" id="toggleDonation">
+            <div className="bg-white shadow-lg rounded-full bottom-10 left-10 absolute">
+              <div className="flex mx-3 my-3">
+                <a
+                  href="https://google.com"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="hover:underline cursor-pointer flex items-center mr-2"
+                >
+                  <Image
+                    src="/icon/click-icon.svg"
+                    height={23}
+                    width={23}
+                    alt="web"
+                  />
+                  <p className="ml-1">Donasi Klik</p>
+                </a>
+                <a
+                  href="mailto:hr@jobspot.id"
+                  className="hover:underline cursor-pointer flex items-center mr-2"
+                >
+                  <Image
+                    src="/icon/coffee-icon.svg"
+                    height={23}
+                    width={23}
+                    alt="web"
+                  />
+                  <p className="ml-1">Donasi Kopi</p>
+                </a>
+              </div>
+            </div>
+          </div>
           <div
             id="toggleMore"
             className="bg-white absolute shadow-lg rounded-full bottom-10 hidden"
@@ -106,14 +147,18 @@ export default function Card() {
               </a>
             </div>
           </div>
+
           <button
             onClick={func}
             className="rounded-full border border-black w-1/5"
           >
             <p className="my-2 mx-auto">Follow</p>
           </button>
-          <button className="rounded-full border border-main w-1/4">
-            <p className="my-2 mx-auto text-main">Jangan Diklik</p>
+          <button
+            className="rounded-full border border-main w-1/4"
+            onClick={toggleDonation}
+          >
+            <p className="my-2 mx-auto text-main">Donasi</p>
           </button>
           <Link href="/detail">
             <button className="rounded-full border bg-main border-main w-1/2">
