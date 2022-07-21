@@ -17,6 +17,17 @@ export default function detail() {
     // });
   };
 
+  const toggleDonation = (e) => {
+    e.preventDefault();
+    const toggleDonation = document.getElementById("toggleDonation");
+    if (toggleDonation.classList.contains("hidden")) {
+      toggleDonation.classList.remove("hidden");
+    } else {
+      toggleDonation.classList.add("hidden");
+    }
+    // });
+  }
+
   const copyToClipboard = () => {
     /* Get the text field */
     const copyText = document.getElementById("emailCopy").classList.value;
@@ -275,6 +286,46 @@ export default function detail() {
                   </div>
                 </div>
               </div>
+              <div className="hidden" id="toggleDonation">
+                <div
+                  className="bg-white shadow-lg rounded-full bottom-10 left-0 absolute"
+                >
+                  <div className="flex mx-3 my-3">
+                    <a
+                      href="https://google.com"
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      className="hover:underline cursor-pointer flex items-center mr-2"
+                    >
+                      <Image
+                        src="/icon/click-icon.svg"
+                        height={23}
+                        width={23}
+                        alt="web"
+                      />
+                      <p className="ml-1">Donasi Klik</p>
+                    </a>
+                    <a
+                      href="mailto:hr@jobspot.id"
+                      className="hover:underline cursor-pointer flex items-center mr-2"
+                    >
+                      <Image
+                        src="/icon/coffee-icon.svg"
+                        height={23}
+                        width={23}
+                        alt="web"
+                      />
+                      <p className="ml-1">Donasi Kopi</p>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <button
+                className="rounded-full border border-black w-1/5 mr-2"
+                onClick={toggleDonation}
+              >
+                <p className="my-2 mx-auto">Donasi</p>
+              </button>
               <button
                 id="applyButton"
                 onClick={func}
