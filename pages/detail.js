@@ -319,7 +319,7 @@ export default function detail() {
                 </div>
               </div>
               <button
-                className="rounded-full border border-black w-1/5 mr-2"
+                className="rounded-full border border-main text-main w-1/5 mr-2"
                 onClick={toggleDonation}
               >
                 <p className="my-2 mx-auto">Donasi</p>
