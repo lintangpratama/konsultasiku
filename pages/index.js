@@ -32,6 +32,24 @@ export default function Home() {
                 />
               </div>
             </div>
+
+            <Link href="/search" passHref={true}>
+              <div className="flex items-center mt-3 hover:underline text-white cursor-pointer">
+                <Image
+                  src="/icon/location-icon-white.svg"
+                  width={16}
+                  height={16}
+                  alt="location-icon"
+                />
+                <p className="text-white ml-1 mr-1">Cari berdasarkan lokasi</p>
+                <Image
+                  src="/icon/chevron-right.svg"
+                  width={12}
+                  height={12}
+                  alt="down-icon"
+                />
+              </div>
+            </Link>
             <div className="flex mt-5 bg-white rounded-search">
               <div className="mx-4 my-5 w-full">
                 <h3 className="mb-4">Kategori</h3>
@@ -169,7 +187,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="mx-4 my-5 mb-20 mt-56">
+        <div className="mx-4 my-5 mb-20 mt-64">
           <div className="flex justify-between mt-5">
             <h3 className="mb-2">Feeds</h3>
             <p className="text-main underline">View All</p>
