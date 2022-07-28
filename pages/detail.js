@@ -24,7 +24,7 @@ export default function detail() {
     } else {
       toggleDonation.classList.add("hidden");
     }
-  }
+  };
 
   const copyToClipboard = () => {
     /* Get the text field */
@@ -105,6 +105,37 @@ export default function detail() {
               />
             </div>
 
+            <div className="mt-5 flex flex-wrap items-center">
+              <div className="mt-5 w-1/2">
+                <div className="flex items-center mb-2">
+                  <Image src="/icon/education-icon.svg" alt="Education" width={16} height={16} />
+                  <p className="ml-1">Pendidikan</p>
+                </div>
+                <p className="font-bold">Diploma 3 atau Sarjana</p>
+              </div>
+              <div className="mt-5 w-1/2">
+                <div className="flex items-center mb-2">
+                  <Image src="/icon/gender-icon.svg" alt="Education" width={16} height={16} />
+                  <p className="ml-1">Jenis Kelamin</p>
+                </div>
+                <p className="font-bold">Semua Jenis Kelamin</p>
+              </div>
+              <div className="my-5 w-1/2">
+                <div className="flex items-center mb-2">
+                  <Image src="/icon/age-icon.svg" alt="Education" width={16} height={16} />
+                  <p className="ml-1">Usia</p>
+                </div>
+                <p className="font-bold">Maksimal 34 Tahun</p>
+              </div>
+              <div className="my-5 w-1/2">
+                <div className="flex items-center mb-2">
+                  <Image src="/icon/experience-icon.svg" alt="Education" width={16} height={16} />
+                  <p className="ml-1">Pengalaman</p>
+                </div>
+                <p className="font-bold">Tanpa Pengalaman</p>
+              </div>
+            </div>
+
             <div className="mt-5">
               <h3>Ringkasan</h3>
               <div className="mt-2">
@@ -121,7 +152,6 @@ export default function detail() {
                 <div className="flex items-center">
                   <div className="w-1.5 h-1.5 rounded-full bg-black mr-1"></div>
                   <p className="w-24">Tipe Pekerjaan</p>
-                  <p>: Full-Time</p>
                   <p>: Remote, Freelaance, Internship, Part-Time</p>
                 </div>
                 <div className="flex items-center">
@@ -285,9 +315,7 @@ export default function detail() {
                 </div>
               </div>
               <div className="hidden" id="toggleDonation">
-                <div
-                  className="bg-white shadow-lg rounded-full bottom-10 left-0 absolute"
-                >
+                <div className="bg-white shadow-lg rounded-full bottom-10 left-0 absolute">
                   <div className="flex mx-3 my-3">
                     <a
                       href="https://google.com"

@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <>
       <div className="flex flex-col min-h-screen max-h-full bg-gray-200">
-        <div className="bg-main h-jumbotron">
+        <div className="bg-main h-jumbotron-search">
           <div className="mx-4 my-5">
             <div className="flex w-full mt-5 bg-white rounded-search">
               <div className="flex w-full mx-4 my-2">

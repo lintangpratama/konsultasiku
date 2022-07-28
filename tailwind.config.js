@@ -14,7 +14,8 @@ module.exports = {
         'success': '#4E9D64',
       },
       height: {
-        'jumbotron': '130px',
+        'jumbotron': '170px',
+        'jumbotron-search': '130px',
         'search': '33px'
       },
       borderRadius: {

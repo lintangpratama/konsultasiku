@@ -187,7 +187,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="mx-4 my-5 mb-20 mt-64">
+        <div className="mx-4 my-5 mb-20 mt-60">
           <div className="flex justify-between mt-5">
             <h3 className="mb-2">Feeds</h3>
             <p className="text-main underline">View All</p>
