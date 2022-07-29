@@ -108,28 +108,48 @@ export default function detail() {
             <div className="mt-5 flex flex-wrap items-center">
               <div className="mt-5 w-1/2">
                 <div className="flex items-center mb-2">
-                  <Image src="/icon/education-icon.svg" alt="Education" width={16} height={16} />
+                  <Image
+                    src="/icon/education-icon.svg"
+                    alt="Education"
+                    width={16}
+                    height={16}
+                  />
                   <p className="ml-1">Pendidikan</p>
                 </div>
                 <p className="font-bold">Diploma 3 atau Sarjana</p>
               </div>
               <div className="mt-5 w-1/2">
                 <div className="flex items-center mb-2">
-                  <Image src="/icon/gender-icon.svg" alt="Education" width={16} height={16} />
+                  <Image
+                    src="/icon/gender-icon.svg"
+                    alt="Education"
+                    width={16}
+                    height={16}
+                  />
                   <p className="ml-1">Jenis Kelamin</p>
                 </div>
                 <p className="font-bold">Semua Jenis Kelamin</p>
               </div>
               <div className="my-5 w-1/2">
                 <div className="flex items-center mb-2">
-                  <Image src="/icon/age-icon.svg" alt="Education" width={16} height={16} />
+                  <Image
+                    src="/icon/age-icon.svg"
+                    alt="Education"
+                    width={16}
+                    height={16}
+                  />
                   <p className="ml-1">Usia</p>
                 </div>
                 <p className="font-bold">Maksimal 34 Tahun</p>
               </div>
               <div className="my-5 w-1/2">
                 <div className="flex items-center mb-2">
-                  <Image src="/icon/experience-icon.svg" alt="Education" width={16} height={16} />
+                  <Image
+                    src="/icon/experience-icon.svg"
+                    alt="Education"
+                    width={16}
+                    height={16}
+                  />
                   <p className="ml-1">Pengalaman</p>
                 </div>
                 <p className="font-bold">Tanpa Pengalaman</p>
@@ -139,11 +159,6 @@ export default function detail() {
             <div className="mt-5">
               <h3>Ringkasan</h3>
               <div className="mt-2">
-                <div className="flex items-center">
-                  <div className="w-1.5 h-1.5 rounded-full bg-black mr-1"></div>
-                  <p className="w-24">Tingkat Pendidikan</p>
-                  <p>: D3, S1</p>
-                </div>
                 <div className="flex items-center">
                   <div className="w-1.5 h-1.5 rounded-full bg-black mr-1"></div>
                   <p className="w-24">Status Kerja</p>

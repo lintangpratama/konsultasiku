@@ -158,7 +158,7 @@ export default function Card() {
             className="rounded-full border border-main w-1/4"
             onClick={toggleDonation}
           >
-            <p className="my-2 mx-auto text-main">Donasi</p>
+            <p className="my-2 mx-auto text-main">Dukung Kami</p>
           </button>
           <Link href="/detail">
             <button className="rounded-full border bg-main border-main w-1/2">
