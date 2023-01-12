@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 * {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Nunito", sans-serif;
   box-sizing: border-box;
 }
 
@@ -14,18 +14,19 @@ h1 {
 
 h3 {
   font-weight: 700;
-  font-size: 11px;
+  font-size: 16px;
 }
 
 p {
-  font-size: 9px;
+  font-size: 14px;
 }
 
 select:focus {
   outline: none;
 }
 
-textarea:focus, input:focus{
+textarea:focus,
+input:focus {
   outline: none;
 }
 
@@ -37,4 +38,21 @@ textarea:focus, input:focus{
 .bold {
   font-size: 12px;
   font-weight: bold;
+}
+
+.splide__arrow {
+  visibility: hidden;
+}
+
+.splide__pagination {
+  bottom: -20px !important;
+}
+
+.splide__pagination__page {
+  background: #8da0d5 !important;
+}
+
+.splide__pagination__page.is-active {
+  background: #2555db !important;
+  transform: none !important;
 }

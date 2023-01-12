@@ -10,8 +10,8 @@ export default function Login() {
 
   const togglePassword = (e) => {
     e.preventDefault();
-    setEye(!eye)
-  }
+    setEye(!eye);
+  };
 
   return (
     <>
@@ -19,7 +19,7 @@ export default function Login() {
         <div className="mx-4 my-5">
           <div
             onClick={() => Router.back()}
-            className="flex justify-center items-center bg-main-blur w-9 h-9 rounded-search cursor-pointer"
+            className="flex justify-center items-center bg-blue-50 w-9 h-9 rounded-search cursor-pointer"
           >
             <Image
               src="/icon/arrow-back-icon.svg"
@@ -29,29 +29,29 @@ export default function Login() {
             />
           </div>
           <div className="mt-6 leading-tight">
-            <h1 className="text-main">Hello!</h1>
-            <h1 className="text-main">Let's Regist</h1>
-            <h1 className="text-main">Your Account</h1>
+            <h1 className="text-main">Halo!</h1>
+            <h1 className="text-gray-800">Ayo Daftarkan</h1>
+            <h1 className="text-gray-800">Akunmu</h1>
           </div>
           <div className="flex flex-col mt-6">
             <div className="flex shadow rounded-search w-full mb-3">
               <input
                 type="text"
-                className="mx-5 my-4 w-full placeholder:text-search text-search"
+                className="mx-5 my-4 w-full placeholder:text-sm text-sm"
                 placeholder="Nama Lengkap"
               />
             </div>
             <div className="flex shadow rounded-search w-full mb-3">
               <input
                 type="email"
-                className="mx-5 my-4 w-full placeholder:text-search text-search"
+                className="mx-5 my-4 w-full placeholder:text-sm text-sm"
                 placeholder="Email"
               />
             </div>
             <div className="flex shadow rounded-search w-full mb-3">
               <input
                 type="number"
-                className="mx-5 my-4 w-full placeholder:text-search text-search"
+                className="mx-5 my-4 w-full placeholder:text-sm text-sm"
                 placeholder="Nomor Telepon"
               />
             </div>
@@ -59,12 +59,17 @@ export default function Login() {
               <div className="mx-5 my-4 w-full flex">
                 <input
                   type={eye ? "password" : "text"}
-                  className="w-full placeholder:text-search text-search"
+                  className="w-full placeholder:text-sm text-sm"
                   placeholder="Password"
                 />
-                <div className="h-4 w-4 cursor-pointer" onClick={togglePassword}>
+                <div
+                  className="h-4 w-4 cursor-pointer"
+                  onClick={togglePassword}
+                >
                   <Image
-                    src={eye ? "/icon/eye-icon.svg" : "/icon/eye-close-icon.svg"}
+                    src={
+                      eye ? "/icon/eye-icon.svg" : "/icon/eye-close-icon.svg"
+                    }
                     alt="eye-icon"
                     width={18}
                     height={18}
@@ -73,14 +78,14 @@ export default function Login() {
               </div>
             </div>
           </div>
-          <button className="flex justify-center items-center mt-6 bg-main rounded-search cursor-pointer w-full">
-            <p className="text-white bold my-3">Sign Up</p>
+          <button className="flex justify-center items-center mt-6 bg-blue-500 hover:bg-main-hover rounded-search cursor-pointer w-full">
+            <p className="text-white font-bold my-3">Daftar</p>
           </button>
           <div className="flex justify-center">
             <p className="mt-3 font-normal">
-              Have an account?{" "}
+              Sudah punya akun?{" "}
               <Link href="/login" passHref={true}>
-                <span className="underline cursor-pointer">Login</span>
+                <span className="underline cursor-pointer">Masuk</span>
               </Link>
             </p>
           </div>

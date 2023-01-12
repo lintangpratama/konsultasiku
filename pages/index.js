@@ -1,201 +1,55 @@
-import Card from "components/Card";
 import MenuBar from "components/MenuBar";
+import React from "react";
 import Image from "next/image";
+import Offering from "components/Offering";
 import Link from "next/link";
+import Bundle from "components/Bundle";
+import ConselorSplide from "components/ConselorSplide";
 
-export default function Home() {
+export default function index() {
   return (
-    <>
-      <div className="flex flex-col min-h-screen max-h-full bg-gray-200">
-        <div className="bg-main h-jumbotron">
+    <div>
+      <div className="flex flex-col min-h-screen max-h-full">
+        <div style={{ width: "100%", height: "200px", position: "relative" }}>
+          <Image
+            src="/img/bg-main.jpg"
+            alt="bg-main"
+            layout="fill"
+            objectFit="cover"
+            style={{
+              filter: "brightness(60%)",
+            }}
+          />
           <div className="mx-4 my-5">
-            <div className="flex justify-between">
-              <Image src="/img/logo.png" alt="logo" width={61} height={14} />
-              <Link href="/login">
-                <p className="text-white hover:underline cursor-pointer">
-                  Login
-                </p>
-              </Link>
-            </div>
-            <div className="flex w-full mt-5 bg-white rounded-search">
-              <div className="flex w-full mx-4 my-2">
-                <Image
-                  src="/icon/search-icon.svg"
-                  alt="logo"
-                  width={17}
-                  height={17}
-                />
-                <input
-                  type="search"
-                  placeholder='Cari "Backend Engineer"'
-                  className="w-full ml-3 text-search text-black placeholder:text-search placeholder:text-black"
-                />
-              </div>
-            </div>
-
-            <Link href="/search" passHref={true}>
-              <div className="flex items-center mt-3 hover:underline text-white cursor-pointer">
-                <Image
-                  src="/icon/location-icon-white.svg"
-                  width={16}
-                  height={16}
-                  alt="location-icon"
-                />
-                <p className="text-white ml-1 mr-1">Cari berdasarkan lokasi</p>
-                <Image
-                  src="/icon/chevron-right.svg"
-                  width={12}
-                  height={12}
-                  alt="down-icon"
-                />
-              </div>
+            <Link href="/login">
+              <button className="absolute right-4 flex justify-center items-center bg-secondary hover:bg-yellow-600 rounded-full cursor-pointer px-3">
+                <p className="text-white text-xs font-bold my-1.5">Login</p>
+              </button>
             </Link>
-            <div className="flex mt-5 bg-white rounded-search">
-              <div className="mx-4 my-5 w-full">
-                <h3 className="mb-4">Kategori</h3>
-                <div className="grid grid-cols-4 justify-between gap-5 tablet:gap-9 mt-1 mb-2">
-                  <div className="cursor-pointer hover:underline">
-                    <div className="flex w-11 h-11 tablet:w-14 tablet:h-14 justify-center align-center shadow-lg rounded-search mx-auto">
-                      <div className="my-auto mx-auto">
-                        <div className="flex justify-center rounded-box">
-                          <Image
-                            src="/icon/money-icon.svg"
-                            alt="language icon"
-                            width={23}
-                            height={23}
-                            className="mx-auto"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <p className="flex mt-1.5 justify-center">Keuangan</p>
-                  </div>
-                  <div className="cursor-pointer hover:underline">
-                    <div className="flex w-11 h-11 tablet:w-14 tablet:h-14 justify-center align-center shadow-lg rounded-search mx-auto">
-                      <div className="my-auto mx-auto">
-                        <div className="flex justify-center rounded-box">
-                          <Image
-                            src="/icon/manufacture-icon.svg"
-                            alt="manufacture icon"
-                            width={23}
-                            height={23}
-                            className="mx-auto"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <p className="flex mt-1.5 justify-center">Manufaktur</p>
-                  </div>
-                  <div className="cursor-pointer hover:underline">
-                    <div className="flex w-11 h-11 tablet:w-14 tablet:h-14 justify-center align-center shadow-lg rounded-search mx-auto">
-                      <div className="my-auto mx-auto">
-                        <div className="flex justify-center rounded-box">
-                          <Image
-                            src="/icon/engineering-icon.svg"
-                            alt="engineering icon"
-                            width={23}
-                            height={23}
-                            className="mx-auto"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <p className="flex mt-1.5 justify-center">Teknik</p>
-                  </div>
-                  <div className="cursor-pointer hover:underline">
-                    <div className="flex w-11 h-11 tablet:w-14 tablet:h-14 justify-center align-center shadow-lg rounded-search mx-auto">
-                      <div className="my-auto mx-auto">
-                        <div className="flex justify-center rounded-box">
-                          <Image
-                            src="/icon/tech-icon.svg"
-                            alt="tech icon"
-                            width={23}
-                            height={23}
-                            className="mx-auto"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <p className="flex mt-1.5 justify-center">Teknologi</p>
-                  </div>
-                  <div className="cursor-pointer hover:underline">
-                    <div className="flex w-11 h-11 tablet:w-14 tablet:h-14 justify-center align-center shadow-lg rounded-search mx-auto">
-                      <div className="my-auto mx-auto">
-                        <div className="flex justify-center rounded-box">
-                          <Image
-                            src="/icon/school-icon.svg"
-                            alt="school icon"
-                            width={23}
-                            height={23}
-                            className="mx-auto"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <p className="flex mt-1.5 justify-center">Pendidikan</p>
-                  </div>
-                  <div className="cursor-pointer hover:underline">
-                    <div className="flex w-11 h-11 tablet:w-14 tablet:h-14 justify-center align-center shadow-lg rounded-search mx-auto">
-                      <div className="my-auto mx-auto">
-                        <div className="flex justify-center rounded-box">
-                          <Image
-                            src="/icon/hobby-icon.svg"
-                            alt="hobby icon"
-                            width={23}
-                            height={23}
-                            className="mx-auto"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <p className="flex mt-1.5 justify-center">Media</p>
-                  </div>
-                  <div className="cursor-pointer hover:underline">
-                    <div className="flex w-11 h-11 tablet:w-14 tablet:h-14 justify-center align-center shadow-lg rounded-search mx-auto">
-                      <div className="my-auto mx-auto">
-                        <div className="flex justify-center rounded-box">
-                          <Image
-                            src="/icon/marketing-icon.svg"
-                            alt="marketing icon"
-                            width={23}
-                            height={23}
-                            className="mx-auto"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <p className="flex mt-1.5 justify-center">Marketing</p>
-                  </div>
-                  <div className="cursor-pointer hover:underline">
-                    <div className="flex w-11 h-11 tablet:w-14 tablet:h-14 justify-center align-center shadow-lg rounded-search mx-auto">
-                      <div className="my-auto mx-auto">
-                        <div className="flex justify-center rounded-box">
-                          <Image
-                            src="/icon/hr-icon.svg"
-                            alt="hr icon"
-                            width={23}
-                            height={23}
-                            className="mx-auto"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <p className="flex mt-1.5 justify-center">SDM</p>
-                  </div>
-                </div>
-              </div>
+            <div className="absolute my-12">
+              <h2 className="text-white font-bold text-xl">
+                Hi, Abdul Rohman!
+              </h2>
+              <p className="text-white text-xs my-1">
+                Bicarakan isi hatimu, melangkah keluar dari permasalahan
+              </p>
             </div>
           </div>
         </div>
-        <div className="mx-4 my-5 mb-20 mt-60">
-          <div className="flex justify-between mt-5">
-            <h3 className="mb-2">Feeds</h3>
-            <p className="text-main underline">View All</p>
+        <div className="bg-white rounded-t-2xl -mt-10 z-50">
+          <div className="mx-4 my-5">
+            <h2 className="mt-8 text-sm font-bold">Layanan Konseling</h2>
+            <Offering />
+            <h2 className="mt-8 text-sm font-bold">Spesial untuk kamu!</h2>
+            <Bundle />
+            <h2 className="mt-8 text-sm font-bold">Rekomendasi Psikolog</h2>
+            <p className="mt-0.5 text-[11px] text-gray-400">Konseling dengan psikolog terpercaya</p>
+            <ConselorSplide />
+            <div className="h-[80px]"></div>
+            <MenuBar />
           </div>
-          <Card />
-          <MenuBar />
         </div>
       </div>
-    </>
+    </div>
   );
 }

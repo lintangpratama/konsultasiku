@@ -7,30 +7,33 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'main': '#FF6347',
-        'main-blur': 'rgba(255, 99, 71, 0.3)',
-        'background-main': '#F1F1F1',
-        'black': '#2F2F2F',
-        'success': '#4E9D64',
+        main: "#476edc",
+        "main-hover": "#344fda",
+        secondary: "#f6b102",
+        "main-blur": "rgba(255, 99, 71, 0.3)",
+        "background-main": "#F1F1F1",
+        black: "#2F2F2F",
+        success: "#4E9D64",
+        "gray-text": "rgba(156, 163, 175, 1)"
       },
       height: {
-        'jumbotron': '170px',
-        'jumbotron-search': '130px',
-        'search': '33px'
+        jumbotron: "170px",
+        "jumbotron-search": "190px",
+        search: "33px",
       },
       borderRadius: {
-        'search': '12px'
+        search: "12px",
       },
       fontSize: {
-        'search': '9px'
+        search: "9px",
       },
       screens: {
-        'tablet': '396px'
+        tablet: "396px",
       },
       inset: {
-        '22': '86px'
-      }
+        22: "86px",
+      },
     },
   },
   plugins: [],
-}
+};
