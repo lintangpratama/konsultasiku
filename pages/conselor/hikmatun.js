@@ -1,16 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
-import Router from "next/router";
 import { useTransition, animated } from "react-spring";
+import { useState } from "react";
+import Router from "next/router";
 import {
   MdClose,
-  MdInfoOutline,
   MdOutlineDomainVerification,
   MdVerified,
   MdVerifiedUser,
 } from "react-icons/md";
 
-export default function LuckySessiani() {
+export default function Hikmatun() {
   const [showForm, setShowForm] = useState(false);
 
   const taskTransitions = useTransition(showForm, {
@@ -36,7 +36,7 @@ export default function LuckySessiani() {
           <div className="flex flex-col items-center justify-center mt-5">
             <div className="w-[100px] h-[140px]">
               <Image
-                src="/img/lucky.png"
+                src="/img/atun.png"
                 className="rounded-2xl"
                 width={100}
                 height={140}
@@ -44,40 +44,55 @@ export default function LuckySessiani() {
               />
             </div>
             <h1 className="text-base font-bold mt-4 flex text-center">
-              Lucky Ade Sessiani, M.Psi., Psikolog
+              Hikmatun Balighoh, M.Psi., Psikolog
               <MdVerified className="ml-2" color="#476edc" size={22} />
             </h1>
             <div className="flex justify-center flex-wrap">
               <button className="right-4 flex mt-2 mr-2 justify-center items-center bg-[#ecf0fb]  rounded-full cursor-pointer px-[8px]">
                 <p className="text-[#5a83fe] text-xs font-bold my-[2px]">
-                  Dosen UIN Walisongo
+                  Keluarga
                 </p>
               </button>
               <button className="right-4 flex mt-2 mr-2 justify-center items-center bg-[#ecf0fb]  rounded-full cursor-pointer px-[8px]">
                 <p className="text-[#5a83fe] text-xs font-bold my-[2px]">
-                  Psikolog Keluarga
+                  Kecemasan
                 </p>
               </button>
               <button className="right-4 flex mt-2 mr-2 justify-center items-center bg-[#ecf0fb]  rounded-full cursor-pointer px-[8px]">
                 <p className="text-[#5a83fe] text-xs font-bold my-[2px]">
-                  Psikolog Pendidikan
+                  Percintaan
                 </p>
               </button>
               <button className="right-4 flex mt-2 mr-2 justify-center items-center bg-[#ecf0fb]  rounded-full cursor-pointer px-[8px]">
                 <p className="text-[#5a83fe] text-xs font-bold my-[2px]">
-                  Psikolog Anak
+                  Stres
+                </p>
+              </button>
+              <button className="right-4 flex mt-2 mr-2 justify-center items-center bg-[#ecf0fb]  rounded-full cursor-pointer px-[8px]">
+                <p className="text-[#5a83fe] text-xs font-bold my-[2px]">
+                  Pernikahan
+                </p>
+              </button>
+              <button className="right-4 flex mt-2 mr-2 justify-center items-center bg-[#ecf0fb]  rounded-full cursor-pointer px-[8px]">
+                <p className="text-[#5a83fe] text-xs font-bold my-[2px]">
+                  Pengembangan Diri
+                </p>
+              </button>
+              <button className="right-4 flex mt-2 mr-2 justify-center items-center bg-[#ecf0fb]  rounded-full cursor-pointer px-[8px]">
+                <p className="text-[#5a83fe] text-xs font-bold my-[2px]">
+                  +6 lainnya
                 </p>
               </button>
             </div>
           </div>
           <div className="mt-12">
-            <h1 className="font-bold text-[20px]">Profil Lucky Ade Sessiani</h1>
+            <h1 className="font-bold text-[20px]">Profil Hikmatun Balighoh</h1>
             <div className="h-2 w-[50px] bg-secondary rounded-full mt-2"></div>
             <p className="text-gray-400 mt-5 text-[13px]">
-              Lucky merupakan Psikolog yang memiliki ketertarikan dalam membantu
-              individu dewasa muda untuk lebih mengenal dirinya sendiri dan juga
-              mengembangkan potensi dalam dirinya. Lucky memiliki misi untuk
-              membantu klien mengenal dan juga mengembangkan dirinya.
+              Hikmatun merupakan Psikolog yang memiliki ketertarikan dalam
+              membantu individu dewasa muda untuk lebih mengenal dirinya sendiri
+              dan juga mengembangkan potensi dalam dirinya. Hikmatun memiliki
+              misi untuk membantu klien mengenal dan juga mengembangkan dirinya.
             </p>
           </div>
           <div className="bg-[#fffbda] w-full mt-5 rounded-2xl">
@@ -110,7 +125,7 @@ export default function LuckySessiani() {
             <MdVerifiedUser color="#476edc" size={24} />
             <div className="ml-3">
               <h1 className="text-base font-bold">Nomor HIMPSI</h1>
-              <p className="text-gray-400 mt-0.5 text-[13px]">SIK: 20130046</p>
+              <p className="text-gray-400 mt-0.5 text-[13px]">SIK: 20170374</p>
             </div>
           </div>
           <div className="mt-2 flex">
@@ -118,7 +133,7 @@ export default function LuckySessiani() {
             <div className="ml-3">
               <h1 className="text-base font-bold">Nomor Izin Praktik</h1>
               <p className="text-gray-400 mt-0.5 text-[13px]">
-                SIPP: 0542-18-2-2
+                SIPP: 0880-20-2-2
               </p>
             </div>
           </div>
@@ -130,7 +145,7 @@ export default function LuckySessiani() {
             className="flex justify-center items-center my-3 mx-4 bg-blue-500 hover:bg-main-hover rounded-search cursor-pointer w-full"
           >
             <p className="text-white font-bold my-2.5">
-              Konseling dengan Lucky
+              Konseling dengan Hikmatun
             </p>
           </button>
         </div>
@@ -176,19 +191,12 @@ export default function LuckySessiani() {
                       placeholder="Ex: 0855xxxxxxxxxx"
                     />
                   </div>
-                  <label className="text-sm">Ajukan Jadwal Konsultasi</label>
-                  <div className="flex shadow rounded-search w-full">
+                  <label className="text-sm">Jadwal Konsultasi</label>
+                  <div className="flex shadow rounded-search w-full mb-3">
                     <input
                       type="datetime-local"
                       className="mx-5 my-4 w-full placeholder:text-sm text-sm"
                     />
-                  </div>
-                  <div className="flex mt-1 mb-3">
-                    <MdInfoOutline color="rgb(59 130 246)" size={15} className="mr-0.5" />
-                    <p className="text-[11px] text-gray-500">
-                      Setelah pemesanan, jadwal konsultasi akan disesuaikan
-                      dengan Psikolog
-                    </p>
                   </div>
                   <label className="text-sm">Keluhan</label>
                   <div className="flex shadow rounded-search w-full mb-3">

@@ -26,22 +26,7 @@ export default function ConselorSplide() {
                 <div className="flex flex-wrap">
                   <button className="right-4 flex mt-2 mr-2 justify-center items-center bg-[#ecf0fb]  rounded-full cursor-pointer px-[8px]">
                     <p className="text-[#5a83fe] text-xs font-bold my-[2px]">
-                      Keluarga
-                    </p>
-                  </button>
-                  <button className="right-4 flex mt-2 mr-2 justify-center items-center bg-[#ecf0fb]  rounded-full cursor-pointer px-[8px]">
-                    <p className="text-[#5a83fe] text-xs font-bold my-[2px]">
-                      Kecemasan
-                    </p>
-                  </button>
-                  <button className="right-4 flex mt-2 mr-2 justify-center items-center bg-[#ecf0fb]  rounded-full cursor-pointer px-[8px]">
-                    <p className="text-[#5a83fe] text-xs font-bold my-[2px]">
-                      Percintaan
-                    </p>
-                  </button>
-                  <button className="right-4 flex mt-2 mr-2 justify-center items-center bg-[#ecf0fb]  rounded-full cursor-pointer px-[8px]">
-                    <p className="text-[#5a83fe] text-xs font-bold my-[2px]">
-                      +6 lainnya
+                      Klinis
                     </p>
                   </button>
                 </div>
@@ -78,17 +63,12 @@ export default function ConselorSplide() {
                   </button>
                   <button className="right-4 flex mt-2 mr-2 justify-center items-center bg-[#ecf0fb]  rounded-full cursor-pointer px-[8px]">
                     <p className="text-[#5a83fe] text-xs font-bold my-[2px]">
-                      Kecemasan
+                      Pendidikan
                     </p>
                   </button>
                   <button className="right-4 flex mt-2 mr-2 justify-center items-center bg-[#ecf0fb]  rounded-full cursor-pointer px-[8px]">
                     <p className="text-[#5a83fe] text-xs font-bold my-[2px]">
-                      Percintaan
-                    </p>
-                  </button>
-                  <button className="right-4 flex mt-2 mr-2 justify-center items-center bg-[#ecf0fb]  rounded-full cursor-pointer px-[8px]">
-                    <p className="text-[#5a83fe] text-xs font-bold my-[2px]">
-                      +6 lainnya
+                      Anak
                     </p>
                   </button>
                 </div>

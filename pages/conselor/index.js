@@ -2,6 +2,7 @@ import React from "react";
 import Router from "next/router";
 import Image from "next/image";
 import Link from "next/link";
+import MenuBar from "components/MenuBar";
 
 export default function index() {
   return (
@@ -112,6 +113,7 @@ export default function index() {
             </div>
           </div>
         </Link>
+        <MenuBar currentPage="/conselor" />
       </div>
     </div>
   );
