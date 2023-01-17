@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import { useTransition, animated } from "react-spring";
 import { useState } from "react";
+import Swal from "sweetalert2";
 import Router from "next/router";
 import {
   MdClose,
@@ -10,9 +11,87 @@ import {
   MdVerified,
   MdVerifiedUser,
 } from "react-icons/md";
+import checkout from "api/checkout";
+import validateEmail from "utils/validateEmail";
 
 export default function Hikmatun() {
   const [showForm, setShowForm] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [payload, setPayload] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    psycolog_name: "Hikmatun Balighoh, M.Psi., Psikolog",
+    amount: 150000,
+    consultation_date: "",
+    complaint: "",
+  });
+
+  useEffect(() => {
+    const konsultasiku_user = JSON.parse(
+      localStorage.getItem("konsultasiku_user")
+    );
+    setPayload({
+      ...payload,
+      name: konsultasiku_user.name || "",
+      phone: konsultasiku_user.phone || "",
+      email: konsultasiku_user.email || "",
+    });
+  }, []);
+
+  const handleSubmit = () => {
+    if (
+      payload.name === "" ||
+      payload.phone === "" ||
+      payload.email === "" ||
+      payload.consultation_date === "" ||
+      payload.complaint === ""
+    ) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Harap isi semua data terlebih dahulu!",
+      });
+    } else if (validateEmail(payload.email) === null) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Format email tidak valid!",
+      });
+    } else {
+      setIsLoading(true);
+      checkout(payload)
+        .then((res) => {
+          setIsLoading(false);
+          localStorage.setItem("konsultasiku_user", JSON.stringify(payload));
+          window.location.href = res.data.data.payment_link;
+        })
+        .catch((err) => {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Something went wrong!",
+          });
+          setIsLoading(false);
+          console.error(err);
+        });
+    }
+  };
+
+  const handleInput = (e) => {
+    setPayload({
+      ...payload,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleDateInput = (e) => {
+    let date = new Date(e.target.value);
+    setPayload({
+      ...payload,
+      [e.target.name]: date.toISOString(),
+    });
+  };
 
   const taskTransitions = useTransition(showForm, {
     from: { opacity: 1, transform: "translateY(100%)" },
@@ -144,34 +223,46 @@ export default function Hikmatun() {
                   <div className="flex shadow rounded-search w-full mb-3">
                     <input
                       type="text"
-                      className="mx-5 my-4 w-full placeholder:text-sm text-sm"
+                      name="name"
+                      className="mx-5 my-4 w-full placeholder:text-sm text-sm bg-white"
                       placeholder="Ex: Wahyu Saputra"
+                      value={payload.name}
+                      onChange={(e) => handleInput(e)}
+                      required={true}
                     />
                   </div>
-                  <label className="text-sm">Status Pernikahan</label>
+                  <label className="text-sm">Email</label>
                   <div className="flex shadow rounded-search w-full mb-3">
-                    <select
-                      type="number"
-                      className="mx-5 my-4 w-full placeholder:text-sm text-sm"
-                      placeholder="Nomor WhatsApp"
-                    >
-                      <option value="lajang">Lajang</option>
-                      <option value="menikah">Sudah Menikah</option>
-                    </select>
+                    <input
+                      type="email"
+                      name="email"
+                      className="mx-5 my-4 w-full placeholder:text-sm text-sm bg-white"
+                      placeholder="Ex: wahyusaputra@gmail.com"
+                      value={payload.email}
+                      onChange={(e) => handleInput(e)}
+                      required={true}
+                    />
                   </div>
                   <label className="text-sm">Nomor WhatsApp</label>
                   <div className="flex shadow rounded-search w-full mb-3">
                     <input
                       type="number"
-                      className="mx-5 my-4 w-full placeholder:text-sm text-sm"
+                      name="phone"
+                      className="mx-5 my-4 w-full placeholder:text-sm text-sm bg-white"
                       placeholder="Ex: 0855xxxxxxxxxx"
+                      value={payload.phone}
+                      onChange={(e) => handleInput(e)}
+                      required={true}
                     />
                   </div>
                   <label className="text-sm">Ajukan Jadwal Konsultasi</label>
                   <div className="flex shadow rounded-search w-full">
                     <input
                       type="datetime-local"
-                      className="mx-5 my-4 w-full placeholder:text-sm text-sm"
+                      name="consultation_date"
+                      className="mx-5 my-4 w-full placeholder:text-sm text-sm bg-white"
+                      onChange={(e) => handleDateInput(e)}
+                      required={true}
                     />
                   </div>
                   <div className="flex mt-1 mb-3">
@@ -188,15 +279,30 @@ export default function Hikmatun() {
                   <label className="text-sm">Keluhan</label>
                   <div className="flex shadow rounded-search w-full mb-3">
                     <textarea
-                      className="mx-5 my-4 w-full placeholder:text-sm text-sm"
+                      className="mx-5 my-4 w-full placeholder:text-sm text-sm bg-white"
+                      name="complaint"
                       placeholder="Kamu dapat jelaskan secara singkat keluhan yang kamu alami"
+                      onChange={(e) => handleInput(e)}
+                      required={true}
                     />
                   </div>
                   <div className="h-16"></div>
                 </div>
                 <div className="flex bg-white fixed bottom-0 justify-center right-1/2 translate-x-1/2 z-30 max-w-md w-full border-gray-icon border-t-[1px]">
-                  <button className="flex justify-center items-center my-3 mx-4 bg-blue-500 hover:bg-main-hover rounded-search cursor-pointer w-full">
+                  <button
+                    onClick={() => handleSubmit(payload)}
+                    className="flex justify-center items-center my-3 mx-4 bg-blue-500 hover:bg-main-hover rounded-search cursor-pointer w-full"
+                  >
                     <p className="text-white font-bold my-2.5">Checkout</p>
+                    {!isLoading ? null : (
+                      <Image
+                        src="/icon/loading.svg"
+                        width={24}
+                        height={24}
+                        alt="loading_icon"
+                        style={{ marginLeft: "6px" }}
+                      />
+                    )}
                   </button>
                 </div>
               </animated.div>

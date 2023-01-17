@@ -23,7 +23,7 @@ export default function index() {
           <div className="mx-4 my-5 text-center w-full">
             <div className="absolute my-8 w-full left-0">
               <h2 className="text-white font-bold text-xl">
-                Hi, Selamat Pagi!
+                Selamat datang!
               </h2>
               <p className="text-white text-xs my-1 max-w-xs mx-auto">
                 Curahkan isi hatimu, melangkah keluar dari permasalahan dengan

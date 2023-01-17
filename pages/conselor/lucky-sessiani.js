@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
-import Router from "next/router";
 import { useTransition, animated } from "react-spring";
+import { useState } from "react";
+import Swal from "sweetalert2";
+import Router from "next/router";
 import {
   MdClose,
   MdInfoOutline,
@@ -9,9 +11,87 @@ import {
   MdVerified,
   MdVerifiedUser,
 } from "react-icons/md";
+import checkout from "api/checkout";
+import validateEmail from "utils/validateEmail";
 
-export default function LuckySessiani() {
+export default function Lucky() {
   const [showForm, setShowForm] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [payload, setPayload] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    psycolog_name: "Lucky Ade Sessiani, M.Psi, Psikolog",
+    amount: 150000,
+    consultation_date: "",
+    complaint: "",
+  });
+
+  useEffect(() => {
+    const konsultasiku_user = JSON.parse(
+      localStorage.getItem("konsultasiku_user")
+    );
+    setPayload({
+      ...payload,
+      name: konsultasiku_user.name || "",
+      phone: konsultasiku_user.phone || "",
+      email: konsultasiku_user.email || "",
+    });
+  }, []);
+
+  const handleSubmit = () => {
+    if (
+      payload.name === "" ||
+      payload.phone === "" ||
+      payload.email === "" ||
+      payload.consultation_date === "" ||
+      payload.complaint === ""
+    ) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Harap isi semua data terlebih dahulu!",
+      });
+    } else if (validateEmail(payload.email) === null) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Format email tidak valid!",
+      });
+    } else {
+      setIsLoading(true);
+      checkout(payload)
+        .then((res) => {
+          setIsLoading(false);
+          localStorage.setItem("konsultasiku_user", JSON.stringify(payload));
+          window.location.href = res.data.data.payment_link;
+        })
+        .catch((err) => {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Something went wrong!",
+          });
+          setIsLoading(false);
+          console.error(err);
+        });
+    }
+  };
+
+  const handleInput = (e) => {
+    setPayload({
+      ...payload,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleDateInput = (e) => {
+    let date = new Date(e.target.value);
+    setPayload({
+      ...payload,
+      [e.target.name]: date.toISOString(),
+    });
+  };
 
   const taskTransitions = useTransition(showForm, {
     from: { opacity: 1, transform: "translateY(100%)" },
@@ -44,13 +124,18 @@ export default function LuckySessiani() {
               />
             </div>
             <h1 className="text-base font-bold mt-4 flex text-center">
-              Lucky Ade Sessiani, M.Psi., Psikolog
+              Lucky Ade Sessiani, M.Psi, Psikolog
               <MdVerified className="ml-2" color="#476edc" size={22} />
             </h1>
             <div className="flex justify-center flex-wrap">
               <button className="right-4 flex mt-2 mr-2 justify-center items-center bg-[#ecf0fb]  rounded-full cursor-pointer px-[8px]">
                 <p className="text-[#5a83fe] text-xs font-bold my-[2px]">
                   Dosen UIN Walisongo
+                </p>
+              </button>
+              <button className="right-4 flex mt-2 mr-2 justify-center items-center bg-[#ecf0fb]  rounded-full cursor-pointer px-[8px]">
+                <p className="text-[#5a83fe] text-xs font-bold my-[2px]">
+                  Psikolog Anak
                 </p>
               </button>
               <button className="right-4 flex mt-2 mr-2 justify-center items-center bg-[#ecf0fb]  rounded-full cursor-pointer px-[8px]">
@@ -63,21 +148,16 @@ export default function LuckySessiani() {
                   Psikolog Pendidikan
                 </p>
               </button>
-              <button className="right-4 flex mt-2 mr-2 justify-center items-center bg-[#ecf0fb]  rounded-full cursor-pointer px-[8px]">
-                <p className="text-[#5a83fe] text-xs font-bold my-[2px]">
-                  Psikolog Anak
-                </p>
-              </button>
             </div>
           </div>
           <div className="mt-12">
-            <h1 className="font-bold text-[20px]">Profil Lucky Ade Sessiani</h1>
+            <h1 className="font-bold text-[20px]">Profil Lucky Sessiani</h1>
             <div className="h-2 w-[50px] bg-secondary rounded-full mt-2"></div>
             <p className="text-gray-400 mt-5 text-[13px]">
-              Lucky merupakan Psikolog yang memiliki ketertarikan dalam membantu
-              individu dewasa muda untuk lebih mengenal dirinya sendiri dan juga
-              mengembangkan potensi dalam dirinya. Lucky memiliki misi untuk
-              membantu klien mengenal dan juga mengembangkan dirinya.
+              Lucky merupakan Psikolog yang memiliki ketertarikan dalam
+              membantu individu dewasa muda untuk lebih mengenal dirinya sendiri
+              dan juga mengembangkan potensi dalam dirinya. Lucky memiliki
+              misi untuk membantu klien mengenal dan juga mengembangkan dirinya.
             </p>
           </div>
           <div className="bg-[#fffbda] w-full mt-5 rounded-2xl">
@@ -153,38 +233,54 @@ export default function LuckySessiani() {
                   <div className="flex shadow rounded-search w-full mb-3">
                     <input
                       type="text"
-                      className="mx-5 my-4 w-full placeholder:text-sm text-sm"
+                      name="name"
+                      className="mx-5 my-4 w-full placeholder:text-sm text-sm bg-white"
                       placeholder="Ex: Wahyu Saputra"
+                      value={payload.name}
+                      onChange={(e) => handleInput(e)}
+                      required={true}
                     />
                   </div>
-                  <label className="text-sm">Status Pernikahan</label>
+                  <label className="text-sm">Email</label>
                   <div className="flex shadow rounded-search w-full mb-3">
-                    <select
-                      type="number"
-                      className="mx-5 my-4 w-full placeholder:text-sm text-sm"
-                      placeholder="Nomor WhatsApp"
-                    >
-                      <option value="lajang">Lajang</option>
-                      <option value="menikah">Sudah Menikah</option>
-                    </select>
+                    <input
+                      type="email"
+                      name="email"
+                      className="mx-5 my-4 w-full placeholder:text-sm text-sm bg-white"
+                      placeholder="Ex: wahyusaputra@gmail.com"
+                      value={payload.email}
+                      onChange={(e) => handleInput(e)}
+                      required={true}
+                    />
                   </div>
                   <label className="text-sm">Nomor WhatsApp</label>
                   <div className="flex shadow rounded-search w-full mb-3">
                     <input
                       type="number"
-                      className="mx-5 my-4 w-full placeholder:text-sm text-sm"
+                      name="phone"
+                      className="mx-5 my-4 w-full placeholder:text-sm text-sm bg-white"
                       placeholder="Ex: 0855xxxxxxxxxx"
+                      value={payload.phone}
+                      onChange={(e) => handleInput(e)}
+                      required={true}
                     />
                   </div>
                   <label className="text-sm">Ajukan Jadwal Konsultasi</label>
                   <div className="flex shadow rounded-search w-full">
                     <input
                       type="datetime-local"
-                      className="mx-5 my-4 w-full placeholder:text-sm text-sm"
+                      name="consultation_date"
+                      className="mx-5 my-4 w-full placeholder:text-sm text-sm bg-white"
+                      onChange={(e) => handleDateInput(e)}
+                      required={true}
                     />
                   </div>
                   <div className="flex mt-1 mb-3">
-                    <MdInfoOutline color="rgb(59 130 246)" size={15} className="mr-0.5" />
+                    <MdInfoOutline
+                      color="rgb(59 130 246)"
+                      size={15}
+                      className="mr-0.5"
+                    />
                     <p className="text-[11px] text-gray-500">
                       Setelah pemesanan, jadwal konsultasi akan disesuaikan
                       dengan Psikolog
@@ -193,15 +289,30 @@ export default function LuckySessiani() {
                   <label className="text-sm">Keluhan</label>
                   <div className="flex shadow rounded-search w-full mb-3">
                     <textarea
-                      className="mx-5 my-4 w-full placeholder:text-sm text-sm"
+                      className="mx-5 my-4 w-full placeholder:text-sm text-sm bg-white"
+                      name="complaint"
                       placeholder="Kamu dapat jelaskan secara singkat keluhan yang kamu alami"
+                      onChange={(e) => handleInput(e)}
+                      required={true}
                     />
                   </div>
                   <div className="h-16"></div>
                 </div>
                 <div className="flex bg-white fixed bottom-0 justify-center right-1/2 translate-x-1/2 z-30 max-w-md w-full border-gray-icon border-t-[1px]">
-                  <button className="flex justify-center items-center my-3 mx-4 bg-blue-500 hover:bg-main-hover rounded-search cursor-pointer w-full">
+                  <button
+                    onClick={() => handleSubmit(payload)}
+                    className="flex justify-center items-center my-3 mx-4 bg-blue-500 hover:bg-main-hover rounded-search cursor-pointer w-full"
+                  >
                     <p className="text-white font-bold my-2.5">Checkout</p>
+                    {!isLoading ? null : (
+                      <Image
+                        src="/icon/loading.svg"
+                        width={24}
+                        height={24}
+                        alt="loading_icon"
+                        style={{ marginLeft: "6px" }}
+                      />
+                    )}
                   </button>
                 </div>
               </animated.div>
