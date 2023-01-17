@@ -28,15 +28,19 @@ export default function Hikmatun() {
   });
 
   useEffect(() => {
-    const konsultasiku_user = JSON.parse(
-      localStorage.getItem("konsultasiku_user")
-    );
-    setPayload({
-      ...payload,
-      name: konsultasiku_user.name || "",
-      phone: konsultasiku_user.phone || "",
-      email: konsultasiku_user.email || "",
-    });
+    try {
+      const konsultasiku_user = JSON.parse(
+        localStorage.getItem("konsultasiku_user")
+      );
+      setPayload({
+        ...payload,
+        name: konsultasiku_user.name || "",
+        phone: konsultasiku_user.phone || "",
+        email: konsultasiku_user.email || "",
+      });
+    } catch (err) {
+      console.log(err);
+    }
   }, []);
 
   const handleSubmit = () => {

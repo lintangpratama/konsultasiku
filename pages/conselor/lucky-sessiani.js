@@ -28,15 +28,19 @@ export default function Lucky() {
   });
 
   useEffect(() => {
-    const konsultasiku_user = JSON.parse(
-      localStorage.getItem("konsultasiku_user")
-    );
-    setPayload({
-      ...payload,
-      name: konsultasiku_user.name || "",
-      phone: konsultasiku_user.phone || "",
-      email: konsultasiku_user.email || "",
-    });
+    try {
+      const konsultasiku_user = JSON.parse(
+        localStorage.getItem("konsultasiku_user")
+      );
+      setPayload({
+        ...payload,
+        name: konsultasiku_user.name || "",
+        phone: konsultasiku_user.phone || "",
+        email: konsultasiku_user.email || "",
+      });
+    } catch (err) {
+      console.log(err);
+    }
   }, []);
 
   const handleSubmit = () => {
@@ -154,10 +158,10 @@ export default function Lucky() {
             <h1 className="font-bold text-[20px]">Profil Lucky Sessiani</h1>
             <div className="h-2 w-[50px] bg-secondary rounded-full mt-2"></div>
             <p className="text-gray-400 mt-5 text-[13px]">
-              Lucky merupakan Psikolog yang memiliki ketertarikan dalam
-              membantu individu dewasa muda untuk lebih mengenal dirinya sendiri
-              dan juga mengembangkan potensi dalam dirinya. Lucky memiliki
-              misi untuk membantu klien mengenal dan juga mengembangkan dirinya.
+              Lucky merupakan Psikolog yang memiliki ketertarikan dalam membantu
+              individu dewasa muda untuk lebih mengenal dirinya sendiri dan juga
+              mengembangkan potensi dalam dirinya. Lucky memiliki misi untuk
+              membantu klien mengenal dan juga mengembangkan dirinya.
             </p>
           </div>
           <div className="bg-[#fffbda] w-full mt-5 rounded-2xl">
