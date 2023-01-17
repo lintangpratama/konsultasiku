@@ -32,12 +32,18 @@ export default function Hikmatun() {
       const konsultasiku_user = JSON.parse(
         localStorage.getItem("konsultasiku_user")
       );
-      setPayload({
-        ...payload,
-        name: konsultasiku_user.name || "",
-        phone: konsultasiku_user.phone || "",
-        email: konsultasiku_user.email || "",
-      });
+      if (
+        konsultasiku_user.name &&
+        konsultasiku_user.phone &&
+        konsultasiku_user.email
+      ) {
+        setPayload({
+          ...payload,
+          name: konsultasiku_user.name || "",
+          phone: konsultasiku_user.phone || "",
+          email: konsultasiku_user.email || "",
+        });
+      }
     } catch (err) {
       console.log(err);
     }
