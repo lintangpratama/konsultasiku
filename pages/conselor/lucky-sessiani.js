@@ -22,7 +22,7 @@ export default function Lucky() {
     phone: "",
     email: "",
     psycolog_name: "Lucky Ade Sessiani, M.Psi, Psikolog",
-    amount: 10000,
+    amount: 99000,
     consultation_date: "",
     complaint: "",
   });

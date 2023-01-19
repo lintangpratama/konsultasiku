@@ -22,7 +22,7 @@ export default function Hikmatun() {
     phone: "",
     email: "",
     psycolog_name: "Hikmatun Balighoh, M.Psi., Psikolog",
-    amount: 10000,
+    amount: 99000,
     consultation_date: "",
     complaint: "",
   });
