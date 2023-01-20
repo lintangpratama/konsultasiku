@@ -12,7 +12,7 @@ export default function index() {
       <div className="flex flex-col min-h-screen max-h-full">
         <div style={{ width: "100%", height: "200px", position: "relative" }}>
           <Image
-            src="/img/bg-main.jpg"
+            src="/img/bg.jpg"
             alt="bg-main"
             layout="fill"
             objectFit="cover"
