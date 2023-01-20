@@ -13,6 +13,7 @@ import {
 } from "react-icons/md";
 import checkout from "api/checkout";
 import validateEmail from "utils/validateEmail";
+import Bundle from "components/Bundle";
 
 export default function Hikmatun() {
   const [showForm, setShowForm] = useState(false);
@@ -160,32 +161,7 @@ export default function Hikmatun() {
               misi untuk membantu klien mengenal dan juga mengembangkan dirinya.
             </p>
           </div>
-          <div className="bg-[#fffbda] w-full mt-5 rounded-2xl">
-            <div className="flex py-4 px-5">
-              <div>
-                <h2 className="text-gray-800 text-sm font-bold">
-                  Paket Konseling Individu
-                </h2>
-                <p className="text-gray-400 font-bold text-[11px] mt-0.5">
-                  Dengan paket ini kamu bisa mendapatkan sesi konseling dengan
-                  total harga yang lebih murah Iho!
-                </p>
-                <button className="right-4 flex justify-center items-center mt-2 bg-[#5a83fe] hover:bg-main rounded-full cursor-pointer px-8">
-                  <p className="text-white text-xs font-bold my-[6px]">
-                    Lihat Paket
-                  </p>
-                </button>
-              </div>
-              <div className="flex items-center">
-                <Image
-                  src="/img/choose-conselor.png"
-                  width={170}
-                  height={170}
-                  alt="consultation"
-                />
-              </div>
-            </div>
-          </div>
+          <Bundle />
           <div className="mt-5 flex">
             <MdVerifiedUser color="#476edc" size={24} />
             <div className="ml-3">
@@ -298,10 +274,16 @@ export default function Hikmatun() {
                   </div>
                   <div className="h-16"></div>
                 </div>
-                <div className="flex bg-white fixed bottom-0 justify-center right-1/2 translate-x-1/2 z-30 max-w-md w-full border-gray-icon border-t-[1px]">
+                <div className="flex flex-col bg-white fixed bottom-0 justify-center right-1/2 translate-x-1/2 z-30 max-w-md w-full border-gray-icon border-t-[1px]">
+                  <div className="mt-2 text-right mx-4">
+                    <p className="text-[12px] text-gray-500">
+                      Total Harga (Sesi 60 menit)
+                    </p>
+                    <p className="text-sm font-bold">Rp99.000</p>
+                  </div>
                   <button
                     onClick={() => handleSubmit(payload)}
-                    className="flex justify-center items-center my-3 mx-4 bg-blue-500 hover:bg-main-hover rounded-search cursor-pointer w-full"
+                    className="flex justify-center items-center my-3 mx-4 bg-blue-500 hover:bg-main-hover rounded-search cursor-pointer"
                   >
                     <p className="text-white font-bold my-2.5">Checkout</p>
                     {!isLoading ? null : (

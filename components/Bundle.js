@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Bundle() {
   return (
@@ -13,9 +14,13 @@ export default function Bundle() {
             Dengan paket ini kamu bisa mendapatkan sesi konseling dengan total
             harga yang lebih murah Iho!
           </p>
-          <button className="right-4 flex justify-center items-center mt-2 bg-[#5a83fe] hover:bg-main rounded-full cursor-pointer px-8">
-            <p className="text-white text-xs font-bold my-[6px]">Lihat Paket</p>
-          </button>
+          <Link href="/conselor">
+            <button className="right-4 flex justify-center items-center mt-2 bg-[#5a83fe] hover:bg-main rounded-full cursor-pointer px-8">
+              <p className="text-white text-xs font-bold my-[6px]">
+                Lihat Paket
+              </p>
+            </button>
+          </Link>
         </div>
         <div className="flex items-center">
           <Image
