@@ -55,7 +55,7 @@ export default function Hikmatun() {
       payload.name === "" ||
       payload.phone === "" ||
       payload.email === "" ||
-      payload.consultation_date === "" ||
+      payload.consultation_date.length < 23 ||
       payload.complaint === ""
     ) {
       Swal.fire({
@@ -97,10 +97,12 @@ export default function Hikmatun() {
   };
 
   const handleDateInput = (e) => {
-    let date = new Date(e.target.value);
+    const date = document.getElementsByName("date")[0].value;
+    const time = document.getElementsByName("time")[0].value;
+    const datetime = `${date}T${time}:00.000Z`;
     setPayload({
       ...payload,
-      [e.target.name]: date.toISOString(),
+      consultation_date: datetime,
     });
   };
 
@@ -241,11 +243,21 @@ export default function Hikmatun() {
                       required={true}
                     />
                   </div>
-                  <label className="text-sm">Ajukan Jadwal Konsultasi</label>
+                  <label className="text-sm">Ajukan Tanggal Konsultasi</label>
+                  <div className="flex shadow rounded-search w-full mb-3">
+                    <input
+                      type="date"
+                      name="date"
+                      className="mx-5 my-4 w-full placeholder:text-sm text-sm bg-white"
+                      onChange={(e) => handleDateInput(e)}
+                      required={true}
+                    />
+                  </div>
+                  <label className="text-sm">Ajukan Jam Konsultasi</label>
                   <div className="flex shadow rounded-search w-full">
                     <input
-                      type="datetime-local"
-                      name="consultation_date"
+                      type="time"
+                      name="time"
                       className="mx-5 my-4 w-full placeholder:text-sm text-sm bg-white"
                       onChange={(e) => handleDateInput(e)}
                       required={true}
@@ -272,7 +284,7 @@ export default function Hikmatun() {
                       required={true}
                     />
                   </div>
-                  <div className="h-16"></div>
+                  <div className="h-28"></div>
                 </div>
                 <div className="flex flex-col bg-white fixed bottom-0 justify-center right-1/2 translate-x-1/2 z-30 max-w-md w-full border-gray-icon border-t-[1px]">
                   <div className="mt-2 text-right mx-4">

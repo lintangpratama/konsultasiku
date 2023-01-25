@@ -15,7 +15,7 @@ import checkout from "api/checkout";
 import validateEmail from "utils/validateEmail";
 import Bundle from "components/Bundle";
 
-export default function Lucky() {
+export default function Hikmatun() {
   const [showForm, setShowForm] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [payload, setPayload] = useState({
@@ -129,7 +129,7 @@ export default function Lucky() {
           <div className="flex flex-col items-center justify-center mt-5">
             <div className="w-[100px] h-[140px]">
               <Image
-                src="/img/lucky.png"
+                src="/img/atun.png"
                 className="rounded-2xl"
                 width={100}
                 height={140}
@@ -294,7 +294,7 @@ export default function Lucky() {
                       required={true}
                     />
                   </div>
-                  <div className="h-28"></div>
+                  <div className="h-16"></div>
                 </div>
                 <div className="flex flex-col bg-white fixed bottom-0 justify-center right-1/2 translate-x-1/2 z-30 max-w-md w-full border-gray-icon border-t-[1px]">
                   <div className="mt-2 text-right mx-4">
