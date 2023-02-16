@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import Image from "next/image";
 import { useTransition, animated } from "react-spring";
 import { useState } from "react";
+import axios from "axios";
 import Swal from "sweetalert2";
 import Router from "next/router";
 import {
@@ -14,40 +15,60 @@ import {
 import checkout from "api/checkout";
 import validateEmail from "utils/validateEmail";
 import Bundle from "components/Bundle";
+import { useRouter } from "next/router";
 
-export default function Lucky() {
+export default function Hikmatun() {
+  const router = useRouter();
+  const { id } = router.query;
+  const [conselorData, setConselorData] = useState(null);
   const [showForm, setShowForm] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [payload, setPayload] = useState({
     name: "",
     phone: "",
     email: "",
-    psycolog_name: "Lucky Ade Sessiani, M.Psi, Psikolog",
-    amount: 99000,
+    psycolog_name: "",
+    amount: "",
     consultation_date: "",
     complaint: "",
   });
 
   useEffect(() => {
     try {
-      const konsultasiku_user = JSON.parse(
-        localStorage.getItem("konsultasiku_user")
-      );
-      if (
-        konsultasiku_user.name &&
-        konsultasiku_user.phone &&
-        konsultasiku_user.email
-      ) {
-        setPayload({
-          ...payload,
-          name: konsultasiku_user.name || "",
-          phone: konsultasiku_user.phone || "",
-          email: konsultasiku_user.email || "",
-        });
-      }
+      const fetchData = () => {
+        axios
+          .get(`https://api.andil.id/konsultasiku/conselor/${id}`)
+          .then((res) => {
+            setConselorData(res.data.conselors.ResponseConselor[0]);
+            console.log(res.data.conselors.ResponseConselor[0]);
+            setPayload({
+              ...payload,
+              psycolog_name:
+                res.data.conselors.ResponseConselor[0].nama_conselor,
+              amount: res.data.conselors.ResponseConselor[0].harga,
+            });
+            const konsultasiku_user = JSON.parse(
+              localStorage.getItem("konsultasiku_user")
+            );
+            if (
+              konsultasiku_user.name &&
+              konsultasiku_user.phone &&
+              konsultasiku_user.email
+            ) {
+              setPayload({
+                ...payload,
+                name: konsultasiku_user.name || "",
+                phone: konsultasiku_user.phone || "",
+                email: konsultasiku_user.email || "",
+              });
+            }
+          });
+      };
+      fetchData();
     } catch (err) {
       console.log(err);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleSubmit = () => {
@@ -129,7 +150,15 @@ export default function Lucky() {
           <div className="flex flex-col items-center justify-center mt-5">
             <div className="w-[100px] h-[140px]">
               <Image
-                src="/img/lucky.png"
+                src={`/img/${
+                  conselorData?.nama_conselor ===
+                  "Lucky Ade Sessiani, M.Psi., Psikolog"
+                    ? "lucky"
+                    : conselorData?.nama_conselor ===
+                      "Hikmatun Balighoh, M.Psi., Psikolog"
+                    ? "atun"
+                    : "logo"
+                }.png`}
                 className="rounded-2xl"
                 width={100}
                 height={140}
@@ -137,40 +166,26 @@ export default function Lucky() {
               />
             </div>
             <h1 className="text-base font-bold mt-4 flex text-center">
-              Lucky Ade Sessiani, M.Psi, Psikolog
+              {conselorData?.nama_conselor}
               <MdVerified className="ml-2" color="#476edc" size={22} />
             </h1>
             <div className="flex justify-center flex-wrap">
-              <button className="right-4 flex mt-2 mr-2 justify-center items-center bg-[#ecf0fb]  rounded-full cursor-pointer px-[8px]">
-                <p className="text-[#5a83fe] text-xs font-bold my-[2px]">
-                  Dosen UIN Walisongo
-                </p>
-              </button>
-              <button className="right-4 flex mt-2 mr-2 justify-center items-center bg-[#ecf0fb]  rounded-full cursor-pointer px-[8px]">
-                <p className="text-[#5a83fe] text-xs font-bold my-[2px]">
-                  Psikolog Anak
-                </p>
-              </button>
-              <button className="right-4 flex mt-2 mr-2 justify-center items-center bg-[#ecf0fb]  rounded-full cursor-pointer px-[8px]">
-                <p className="text-[#5a83fe] text-xs font-bold my-[2px]">
-                  Psikolog Keluarga
-                </p>
-              </button>
-              <button className="right-4 flex mt-2 mr-2 justify-center items-center bg-[#ecf0fb]  rounded-full cursor-pointer px-[8px]">
-                <p className="text-[#5a83fe] text-xs font-bold my-[2px]">
-                  Psikolog Pendidikan
-                </p>
-              </button>
+              {conselorData?.jabatan_conselor.map((data) => (
+                <>
+                  <button className="right-4 flex mt-2 mr-2 justify-center items-center bg-[#ecf0fb]  rounded-full cursor-pointer px-[8px]">
+                    <p className="text-[#5a83fe] text-xs font-bold my-[2px]">
+                      {data}
+                    </p>
+                  </button>
+                </>
+              ))}
             </div>
           </div>
           <div className="mt-12">
-            <h1 className="font-bold text-[20px]">Profil Lucky Sessiani</h1>
+            <h1 className="font-bold text-[20px]">Profil Konselor</h1>
             <div className="h-2 w-[50px] bg-secondary rounded-full mt-2"></div>
             <p className="text-gray-400 mt-5 text-[13px]">
-              Lucky merupakan Psikolog yang memiliki ketertarikan dalam membantu
-              individu dewasa muda untuk lebih mengenal dirinya sendiri dan juga
-              mengembangkan potensi dalam dirinya. Lucky memiliki misi untuk
-              membantu klien mengenal dan juga mengembangkan dirinya.
+              {conselorData?.description}
             </p>
           </div>
           <Bundle />
@@ -178,7 +193,10 @@ export default function Lucky() {
             <MdVerifiedUser color="#476edc" size={24} />
             <div className="ml-3">
               <h1 className="text-base font-bold">Nomor HIMPSI</h1>
-              <p className="text-gray-400 mt-0.5 text-[13px]">SIK: 20130046</p>
+              <p className="text-gray-400 mt-0.5 text-[13px]">
+                {" "}
+                {conselorData?.no_himpsi}
+              </p>
             </div>
           </div>
           <div className="mt-2 flex">
@@ -186,7 +204,7 @@ export default function Lucky() {
             <div className="ml-3">
               <h1 className="text-base font-bold">Nomor Izin Praktik</h1>
               <p className="text-gray-400 mt-0.5 text-[13px]">
-                SIPP: 0542-18-2-2
+                {conselorData?.no_izin}
               </p>
             </div>
           </div>
@@ -197,9 +215,7 @@ export default function Lucky() {
             onClick={() => setShowForm(true)}
             className="flex justify-center items-center my-3 mx-4 bg-blue-500 hover:bg-main-hover rounded-search cursor-pointer w-full"
           >
-            <p className="text-white font-bold my-2.5">
-              Konseling dengan Lucky
-            </p>
+            <p className="text-white font-bold my-2.5">Konseling Sekarang</p>
           </button>
         </div>
         {taskTransitions(
@@ -301,7 +317,9 @@ export default function Lucky() {
                     <p className="text-[12px] text-gray-500">
                       Total Harga (Sesi 60 menit)
                     </p>
-                    <p className="text-sm font-bold">Rp99.000</p>
+                    <p className="text-sm font-bold">
+                      {"Rp" + conselorData?.harga}
+                    </p>
                   </div>
                   <button
                     onClick={() => handleSubmit(payload)}
@@ -325,4 +343,10 @@ export default function Lucky() {
       </div>
     </div>
   );
+}
+
+export async function getServerSideProps(context) {
+  return {
+    props: {},
+  };
 }

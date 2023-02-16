@@ -1,12 +1,14 @@
 import MenuBar from "components/MenuBar";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Offering from "components/Offering";
-import Link from "next/link";
 import Bundle from "components/Bundle";
 import ConselorSplide from "components/ConselorSplide";
+import axios from "axios";
 
-export default function index() {
+export default function Index() {
+
+
   return (
     <div>
       <div className="flex flex-col min-h-screen max-h-full">
@@ -22,9 +24,7 @@ export default function index() {
           />
           <div className="mx-4 my-5 text-center w-full">
             <div className="absolute my-8 w-full left-0">
-              <h2 className="text-white font-bold text-xl">
-                Selamat datang!
-              </h2>
+              <h2 className="text-white font-bold text-xl">Selamat datang!</h2>
               <p className="text-white text-xs my-1 max-w-xs mx-auto">
                 Curahkan isi hatimu, melangkah keluar dari permasalahan dengan
                 Konsultasiku
