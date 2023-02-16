@@ -5,7 +5,7 @@ import Link from "next/link";
 import MenuBar from "components/MenuBar";
 import axios from "axios";
 
-export default function index() {
+export default function Index() {
   const [conselorData, setConselorData] = useState(null);
   useEffect(() => {
     const fetchData = () => {
