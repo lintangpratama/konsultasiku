@@ -40,13 +40,8 @@ export default function Hikmatun() {
           .get(`https://api.andil.id/konsultasiku/conselor/${id}`)
           .then((res) => {
             setConselorData(res.data.conselors.ResponseConselor[0]);
-            console.log(res.data.conselors.ResponseConselor[0]);
-            setPayload({
-              ...payload,
-              psycolog_name:
-                res.data.conselors.ResponseConselor[0].nama_conselor,
-              amount: res.data.conselors.ResponseConselor[0].harga,
-            });
+          })
+          .then(() => {
             const konsultasiku_user = JSON.parse(
               localStorage.getItem("konsultasiku_user")
             );
@@ -92,6 +87,7 @@ export default function Hikmatun() {
       });
     } else {
       setIsLoading(true);
+      console.log(payload);
       checkout(payload)
         .then((res) => {
           setIsLoading(false);
@@ -114,6 +110,8 @@ export default function Hikmatun() {
     setPayload({
       ...payload,
       [e.target.name]: e.target.value,
+      psycolog_name: conselorData.nama_conselor,
+      amount: conselorData.harga,
     });
   };
 
