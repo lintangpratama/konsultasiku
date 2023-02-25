@@ -23,7 +23,6 @@ androidx.annotation.Size
 androidx.browser.browseractions.BrowserServiceFileProvider
 androidx.core.view.MarginLayoutParamsCompat
 androidx.core.view.ActionProvider$VisibilityListener
-app.netlify.konsultasiku.twa.LauncherActivity
 androidx.core.widget.NestedScrollView$OnScrollChangeListener
 androidx.browser.customtabs.CustomTabsService
 androidx.core.text.PrecomputedTextCompat$PrecomputedTextFutureTask
@@ -115,8 +114,8 @@ androidx.annotation.WorkerThread
 androidx.core.graphics.TypefaceCompatBaseImpl$2
 androidx.core.view.accessibility.AccessibilityManagerCompat
 androidx.core.view.GestureDetectorCompat$GestureDetectorCompatImplJellybeanMr2
-androidx.core.content.PermissionChecker
 androidx.browser.customtabs.CustomTabsSession$MockSession
+androidx.core.content.PermissionChecker
 com.google.androidbrowserhelper.R$attr
 android.support.customtabs.trusted.ITrustedWebActivityCallback$Stub:
     public void <init>()
@@ -719,8 +718,8 @@ android.support.customtabs.trusted.ITrustedWebActivityService$Stub:
     static final int TRANSACTION_getSmallIconId
     static final int TRANSACTION_getSmallIconBitmap
     static final int TRANSACTION_extraCommand
-androidx.core.app.ShareCompat
 androidx.core.content.SharedPreferencesCompat$EditorCompat
+androidx.core.app.ShareCompat
 androidx.core.view.accessibility.AccessibilityNodeProviderCompat$AccessibilityNodeProviderApi16
 androidx.core.view.NestedScrollingParent
 androidx.core.app.NotificationCompat$Extender
@@ -1005,7 +1004,6 @@ com.google.androidbrowserhelper.trusted.WebViewFallbackActivity:
     private static final java.lang.String KEY_EXTRA_ORIGINS
 com.google.androidbrowserhelper.R$style
 androidx.core.provider.SelfDestructiveThread$2
-app.netlify.konsultasiku.twa.Application
 androidx.core.graphics.TypefaceCompatApi26Impl
 androidx.core.app.JobIntentService$CommandProcessor
 androidx.core.view.DragStartHelper$2

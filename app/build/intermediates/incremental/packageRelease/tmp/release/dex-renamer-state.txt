@@ -1,4 +1,4 @@
-#Sat Feb 25 13:29:01 ICT 2023
+#Sat Feb 25 14:02:15 ICT 2023
 base.0=C\:\\Users\\linta\\Documents\\code\\konsultasiku\\app\\build\\intermediates\\dex\\release\\minifyReleaseWithR8\\classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

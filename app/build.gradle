@@ -55,8 +55,8 @@ android {
         applicationId "com.konsultasiku.app.twa"
         minSdkVersion 19
         targetSdkVersion 31
-        versionCode 3
-        versionName "3"
+        versionCode 1
+        versionName "1"
 
         // The name for the application
         resValue "string", "appName", twaManifest.name

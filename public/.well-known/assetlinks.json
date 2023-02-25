@@ -3,8 +3,10 @@
     "relation": ["delegate_permission/common.handle_all_urls"],
     "target": {
       "namespace": "android_app",
-      "package_name": "app.netlify.konsultasiku.twa",
-      "sha256_cert_fingerprints": ["hash_of_app_certificate"]
+      "package_name": "com.konsultasiku.app.twa",
+      "sha256_cert_fingerprints": [
+        "FD:A8:9E:64:9C:EE:B7:DF:57:DB:67:73:94:18:FC:A8:5A:CE:B4:66:CC:85:57:22:23:0E:FF:2D:34:3C:9D:49"
+      ]
     }
   }
 ]
