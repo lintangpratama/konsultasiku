@@ -28,7 +28,7 @@
         \"relation\": [\"delegate_permission/common.handle_all_urls\"],
         \"target\": {
             \"namespace\": \"web\",
-            \"site\": \"https://konsultasiku.netlify.app\"
+            \"site\": \"https://app.konsultasiku.com\"
         }
     }]
     

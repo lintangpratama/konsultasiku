@@ -114,29 +114,16 @@
 # The proguard configuration file for the following section is C:\Users\linta\Documents\code\konsultasiku\app\build\intermediates\aapt_proguard_file\release\aapt_rules.txt
 -keep class androidx.core.app.CoreComponentFactory { <init>(); }
 -keep class androidx.core.content.FileProvider { <init>(); }
--keep class app.netlify.konsultasiku.twa.Application { <init>(); }
--keep class app.netlify.konsultasiku.twa.DelegationService { <init>(); }
--keep class app.netlify.konsultasiku.twa.LauncherActivity { <init>(); }
--keep class com.android.billingclient.api.ProxyBillingActivity { <init>(); }
--keep class com.google.androidbrowserhelper.playbilling.provider.PaymentActivity { <init>(); }
--keep class com.google.androidbrowserhelper.playbilling.provider.PaymentService { <init>(); }
 -keep class com.google.androidbrowserhelper.trusted.FocusActivity { <init>(); }
 -keep class com.google.androidbrowserhelper.trusted.ManageDataLauncherActivity { <init>(); }
 -keep class com.google.androidbrowserhelper.trusted.WebViewFallbackActivity { <init>(); }
+-keep class com.konsultasiku.app.twa.Application { <init>(); }
+-keep class com.konsultasiku.app.twa.DelegationService { <init>(); }
+-keep class com.konsultasiku.app.twa.LauncherActivity { <init>(); }
 -keep class androidx.browser.browseractions.BrowserActionsFallbackMenuView { <init>(android.content.Context, android.util.AttributeSet); }
 
 
 # End of content from C:\Users\linta\Documents\code\konsultasiku\app\build\intermediates\aapt_proguard_file\release\aapt_rules.txt
-# The proguard configuration file for the following section is C:\Users\linta\.gradle\caches\transforms-2\files-2.1\3ca1b92d8f6e53774646d92c7d4b0601\billing-1.0.0-alpha09\proguard.txt
-
-# End of content from C:\Users\linta\.gradle\caches\transforms-2\files-2.1\3ca1b92d8f6e53774646d92c7d4b0601\billing-1.0.0-alpha09\proguard.txt
-# The proguard configuration file for the following section is C:\Users\linta\.gradle\caches\transforms-2\files-2.1\18ea01a1d7688ca6ada3fcd128b43d3a\billing-4.0.0\proguard.txt
-# Keep the AIDL interface
--keep class com.android.vending.billing.** { *; }
-
--dontwarn javax.annotation.**
--dontwarn org.checkerframework.**
-# End of content from C:\Users\linta\.gradle\caches\transforms-2\files-2.1\18ea01a1d7688ca6ada3fcd128b43d3a\billing-4.0.0\proguard.txt
 # The proguard configuration file for the following section is C:\Users\linta\.gradle\caches\transforms-2\files-2.1\e601daed4ba62929db8b322b2974c8f8\core-1.1.0\proguard.txt
 # aapt2 is not (yet) keeping FQCNs defined in the appComponentFactory <application> attribute
 -keep class androidx.core.app.CoreComponentFactory

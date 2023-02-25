@@ -1,9 +1,9 @@
 {
-  "packageId": "app.netlify.konsultasiku.twa",
-  "host": "konsultasiku.netlify.app",
+  "packageId": "com.konsultasiku.app.twa",
+  "host": "app.konsultasiku.com",
   "name": "Konsultasiku",
   "launcherName": "Konsultasiku",
-  "display": "standalone",
+  "display": "fullscreen",
   "themeColor": "#476EDC",
   "navigationColor": "#000000",
   "navigationColorDark": "#000000",
@@ -12,34 +12,30 @@
   "backgroundColor": "#FFFFFF",
   "enableNotifications": true,
   "startUrl": "/",
-  "iconUrl": "https://konsultasiku.netlify.app/icon-512x512.png",
+  "iconUrl": "https://app.konsultasiku.com/icon-512x512.png",
   "splashScreenFadeOutDuration": 300,
   "signingKey": {
     "path": "C:\\Users\\linta\\Documents\\code\\konsultasiku\\android.keystore",
     "alias": "android"
   },
-  "appVersionName": "konsultasiku",
+  "appVersionName": "3",
   "appVersionCode": 3,
   "shortcuts": [],
   "generatorApp": "bubblewrap-cli",
-  "webManifestUrl": "https://konsultasiku.netlify.app/manifest.json",
+  "webManifestUrl": "https://app.konsultasiku.com/manifest.json",
   "fallbackType": "customtabs",
-  "features": {
-    "playBilling": {
-      "enabled": true
-    }
-  },
+  "features": {},
   "alphaDependencies": {
-    "enabled": true
+    "enabled": false
   },
   "enableSiteSettingsShortcut": true,
   "isChromeOSOnly": false,
   "isMetaQuest": false,
-  "fullScopeUrl": "https://konsultasiku.netlify.app/",
+  "fullScopeUrl": "https://app.konsultasiku.com/",
   "minSdkVersion": 19,
   "orientation": "default",
   "fingerprints": [],
   "additionalTrustedOrigins": [],
   "retainedBundles": [],
-  "appVersion": "konsultasiku"
+  "appVersion": "3"
 }

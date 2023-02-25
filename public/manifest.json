@@ -1,7 +1,7 @@
 {
     "theme_color": "#476edc",
     "background_color": "#fff",
-    "display": "standalone",
+    "display": "fullscreen",
     "scope": "/",
     "start_url": "/",
     "description": "Di Konsultasiku, kamu dapat bertemu psikolog yang ahli dalam permasalahan psikologis & siap membantumu menemukan jalan keluarnya.",

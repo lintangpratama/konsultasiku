@@ -1,8 +1,12 @@
-app/netlify/konsultasiku/twa/BuildConfig.java
- app.netlify.konsultasiku.twa.BuildConfig
 app/netlify/konsultasiku/twa/LauncherActivity.java
  app.netlify.konsultasiku.twa.LauncherActivity
-app/netlify/konsultasiku/twa/DelegationService.java
- app.netlify.konsultasiku.twa.DelegationService
+com/konsultasiku/app/twa/DelegationService.java
+ com.konsultasiku.app.twa.DelegationService
 app/netlify/konsultasiku/twa/Application.java
  app.netlify.konsultasiku.twa.Application
+com/konsultasiku/app/twa/BuildConfig.java
+ com.konsultasiku.app.twa.BuildConfig
+com/konsultasiku/app/twa/LauncherActivity.java
+ com.konsultasiku.app.twa.LauncherActivity
+com/konsultasiku/app/twa/Application.java
+ com.konsultasiku.app.twa.Application

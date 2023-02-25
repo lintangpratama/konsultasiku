@@ -22,9 +22,9 @@
      the abbreviated format.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="app.netlify.konsultasiku.twa"
+    package="com.konsultasiku.app.twa"
     android:versionCode="3"
-    android:versionName="konsultasiku" >
+    android:versionName="3" >
 
     <uses-sdk
         android:minSdkVersion="19"
@@ -40,10 +40,8 @@
         </intent>
     </queries>
 
-    <uses-permission android:name="com.android.vending.BILLING" />
-
     <application
-        android:name="app.netlify.konsultasiku.twa.Application"
+        android:name="com.konsultasiku.app.twa.Application"
         android:allowBackup="true"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:icon="@mipmap/ic_launcher"
@@ -67,7 +65,7 @@
                 android:value="@string/launchUrl" />
         </activity>
         <activity
-            android:name="app.netlify.konsultasiku.twa.LauncherActivity"
+            android:name="com.konsultasiku.app.twa.LauncherActivity"
             android:alwaysRetainTaskState="true"
             android:exported="true"
             android:label="@string/launcherName" >
@@ -108,6 +106,9 @@
                 android:name="android.support.customtabs.trusted.FALLBACK_STRATEGY"
                 android:value="@string/fallbackType" />
             <meta-data
+                android:name="android.support.customtabs.trusted.DISPLAY_MODE"
+                android:value="immersive" />
+            <meta-data
                 android:name="android.support.customtabs.trusted.SCREEN_ORIENTATION"
                 android:value="@string/orientation" />
 
@@ -143,7 +144,7 @@
         </provider>
 
         <service
-            android:name="app.netlify.konsultasiku.twa.DelegationService"
+            android:name="com.konsultasiku.app.twa.DelegationService"
             android:enabled="@bool/enableNotification"
             android:exported="@bool/enableNotification" >
             <meta-data
@@ -156,39 +157,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </service>
-
-        <activity
-            android:name="com.google.androidbrowserhelper.playbilling.provider.PaymentActivity"
-            android:configChanges="keyboardHidden|keyboard|orientation|screenLayout|screenSize"
-            android:exported="true"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
-            <intent-filter>
-                <action android:name="org.chromium.intent.action.PAY" />
-            </intent-filter>
-
-            <meta-data
-                android:name="org.chromium.default_payment_method_name"
-                android:value="https://play.google.com/billing" />
-        </activity>
-
-        <!-- This service checks who calls it at runtime. -->
-        <service
-            android:name="com.google.androidbrowserhelper.playbilling.provider.PaymentService"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="org.chromium.intent.action.IS_READY_TO_PAY" />
-            </intent-filter>
-        </service>
-
-        <meta-data
-            android:name="com.google.android.play.billingclient.version"
-            android:value="4.0.0" />
-
-        <activity
-            android:name="com.android.billingclient.api.ProxyBillingActivity"
-            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
-            android:exported="false"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
     </application>
 
 </manifest>

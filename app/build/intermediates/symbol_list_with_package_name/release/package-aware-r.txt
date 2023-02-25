@@ -1,4 +1,4 @@
-app.netlify.konsultasiku.twa
+com.konsultasiku.app.twa
 attr alpha
 attr font
 attr fontProviderAuthority

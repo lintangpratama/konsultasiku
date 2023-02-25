@@ -16,13 +16,13 @@
     <!-- Value from default config. -->
     <string name="fallbackType" translatable="false">customtabs</string>
     <!-- Value from default config. -->
-    <string name="fullScopeUrl" translatable="false">https://konsultasiku.netlify.app/</string>
+    <string name="fullScopeUrl" translatable="false">https://app.konsultasiku.com/</string>
     <!-- Value from default config. -->
     <string name="generatorApp" translatable="false">bubblewrap-cli</string>
     <!-- Value from default config. -->
-    <string name="hostName" translatable="false">konsultasiku.netlify.app</string>
+    <string name="hostName" translatable="false">app.konsultasiku.com</string>
     <!-- Value from default config. -->
-    <string name="launchUrl" translatable="false">https://konsultasiku.netlify.app/</string>
+    <string name="launchUrl" translatable="false">https://app.konsultasiku.com/</string>
     <!-- Value from default config. -->
     <string name="launcherName" translatable="false">Konsultasiku</string>
     <!-- Value from default config. -->
@@ -36,10 +36,10 @@
     <!-- Value from default config. -->
     <string name="orientation" translatable="false">default</string>
     <!-- Value from default config. -->
-    <string name="providerAuthority" translatable="false">app.netlify.konsultasiku.twa.fileprovider</string>
+    <string name="providerAuthority" translatable="false">com.konsultasiku.app.twa.fileprovider</string>
     <!-- Value from default config. -->
     <integer name="splashScreenFadeOutDuration">300</integer>
     <!-- Value from default config. -->
-    <string name="webManifestUrl" translatable="false">https://konsultasiku.netlify.app/manifest.json</string>
+    <string name="webManifestUrl" translatable="false">https://app.konsultasiku.com/manifest.json</string>
 
 </resources>

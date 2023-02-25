@@ -4,7 +4,7 @@
     "type": "BUNDLE",
     "kind": "RegularFile"
   },
-  "applicationId": "app.netlify.konsultasiku.twa",
+  "applicationId": "com.konsultasiku.app.twa",
   "variantName": "release",
   "elements": [
     {
